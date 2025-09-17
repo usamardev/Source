@@ -1,0 +1,14 @@
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\bin\Debug\net8.0\LeetCodeTest.exe
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\bin\Debug\net8.0\LeetCodeTest.deps.json
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\bin\Debug\net8.0\LeetCodeTest.runtimeconfig.json
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\bin\Debug\net8.0\LeetCodeTest.dll
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\bin\Debug\net8.0\LeetCodeTest.pdb
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\LeetCodeTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\LeetCodeTest.AssemblyInfoInputs.cache
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\LeetCodeTest.AssemblyInfo.cs
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\LeetCodeTest.csproj.CoreCompileInputs.cache
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\LeetCodeTest.dll
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\refint\LeetCodeTest.dll
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\LeetCodeTest.pdb
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\LeetCodeTest.genruntimeconfig.cache
+C:\Users\Samar\source\repos\LeetCodeTest\LeetCodeTest\obj\Debug\net8.0\ref\LeetCodeTest.dll

@@ -13,17 +13,6 @@
             hashmap.ContainsNearbyDuplicate([1, 2, 3, 1, 2, 3],2);
             Console.WriteLine("Hello, World!");
 
-
-           
-
-            //string[] words = ["Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"];
-            //int maxWidth = 20;
-
-            //test.FullJustify(words, maxWidth);  
-
-            //string postText = "ABCD";
-            //string result=test.Convert(postText, 2);
-            //Console.WriteLine(result);
         }
         
 

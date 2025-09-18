@@ -392,6 +392,70 @@ namespace LeetCodeTest
             return minLen == int.MaxValue ? "" : new string(chS, startIndex, minLen);
         }
 
+        public IList<int> FindSubstring(string s, string[] words)
+        {
+            HashSet<string> window = GetPermutations(words);
+
+            List<int> result = new List<int>();
+
+            int windowCount = window.First().Length;
+
+            if(s.Length < windowCount) 
+                return result;
+
+            for (int i = windowCount;i<=s.Length;i++)
+            {
+                string text = s.Substring(i-windowCount, windowCount);
+                if(window.Contains(text))
+                    result.Add(i-windowCount);
+            }
+            result.Sort();
+            return result;
+        }
+
+        public HashSet<string> GetPermutations(string[] arr)
+        {
+            var result = new HashSet<string>();
+            int n = arr.Length;
+
+            // Heap's Algorithm
+            int[] c = new int[n];
+            result.Add(string.Join("", arr));
+
+            int i = 0;
+            while (i < n)
+            {
+                if (c[i] < i)
+                {
+                    if (i % 2 == 0)
+                        Swap(ref arr[0], ref arr[i]);
+                    else
+                        Swap(ref arr[c[i]], ref arr[i]);
+
+                    result.Add(string.Join("", arr));
+                    c[i]++;
+                    i = 0;
+                }
+                else
+                {
+                    c[i] = 0;
+                    i++;
+                }
+            }
+
+            return result;
+        }
+
+        public void Swap(ref string a, ref string b)
+        {
+            if (a != b)
+            {
+                string temp = a;
+                a = b;
+                b = temp;
+            }
+        }
+
         public int Max(int a, int b) => (a >= b) ? a : b;
         public int Min(int a, int b) => (a >= b) ? b : a;
 

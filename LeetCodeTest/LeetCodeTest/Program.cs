@@ -7,10 +7,7 @@
             Test test = new Test();
             Hashmap hashmap = new Hashmap();
 
-            int a=2/10;
-            int b=2%10;
-
-            hashmap.ContainsNearbyDuplicate([1, 2, 3, 1, 2, 3],2);
+            test.FindSubstring("fffffffffffffffffffffffffffffffff", ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"]);
             Console.WriteLine("Hello, World!");
 
         }

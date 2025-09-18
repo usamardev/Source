@@ -7,7 +7,7 @@
             Test test = new Test();
             Hashmap hashmap = new Hashmap();
 
-            test.FindSubstring("fffffffffffffffffffffffffffffffff", ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"]);
+            test.FindSubstring("ababaab", ["ab", "ba", "ba"]);
             Console.WriteLine("Hello, World!");
 
         }

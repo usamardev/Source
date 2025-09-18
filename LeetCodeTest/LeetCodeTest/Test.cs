@@ -394,66 +394,38 @@ namespace LeetCodeTest
 
         public IList<int> FindSubstring(string s, string[] words)
         {
-            HashSet<string> window = GetPermutations(words);
-
             List<int> result = new List<int>();
+            int wordLength = words[0].Length;
+            int totalLength = wordLength * words.Length;
 
-            int windowCount = window.First().Length;
-
-            if(s.Length < windowCount) 
+            if (s.Length < totalLength)
                 return result;
 
-            for (int i = windowCount;i<=s.Length;i++)
+            for (int i = totalLength; i <= s.Length; i++)
             {
-                string text = s.Substring(i-windowCount, windowCount);
-                if(window.Contains(text))
-                    result.Add(i-windowCount);
-            }
-            result.Sort();
-            return result;
-        }
+                string text = s.Substring(i - totalLength, totalLength);
 
-        public HashSet<string> GetPermutations(string[] arr)
-        {
-            var result = new HashSet<string>();
-            int n = arr.Length;
-
-            // Heap's Algorithm
-            int[] c = new int[n];
-            result.Add(string.Join("", arr));
-
-            int i = 0;
-            while (i < n)
-            {
-                if (c[i] < i)
+                for (int j = 0; j < words.Length; j++)
                 {
-                    if (i % 2 == 0)
-                        Swap(ref arr[0], ref arr[i]);
+                    int index = (text.IndexOf(words[j]));
+                    if  (index>= 0)
+                        text = ReplaceAt(text,index, "", words[j].Length);
                     else
-                        Swap(ref arr[c[i]], ref arr[i]);
+                        break;
+                }
+                if(text.Length<=0)
+                    result.Add(i-totalLength);
 
-                    result.Add(string.Join("", arr));
-                    c[i]++;
-                    i = 0;
-                }
-                else
-                {
-                    c[i] = 0;
-                    i++;
-                }
             }
-
             return result;
         }
 
-        public void Swap(ref string a, ref string b)
+        public string ReplaceAt(string str, int index, string newStr, int length)
         {
-            if (a != b)
-            {
-                string temp = a;
-                a = b;
-                b = temp;
-            }
+            if (index < 0 || index + length > str.Length)
+                throw new ArgumentOutOfRangeException();
+
+            return str.Substring(0, index) + newStr + str.Substring(index + length);
         }
 
         public int Max(int a, int b) => (a >= b) ? a : b;

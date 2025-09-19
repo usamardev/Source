@@ -8,7 +8,7 @@
         Masalan: (i=4, j=5) bo‘lsa → (4/3, 5/3) = (1,1) → bu o‘rta quti.        
         String qilib yozsak: "5 in box 1-1".
         */
-        public bool IsValidSudoku(char[][] board)
+        public bool IsValidSudoku(char[][] board) 
         {
             bool[,] rows = new bool[9, 9];
             bool[,] cols = new bool[9, 9];
@@ -53,5 +53,67 @@
             //}
             //return true;
         }
+
+        public IList<int> SpiralOrder(int[][] matrix)
+        {
+            int col = 0;
+            int row = 0;
+
+            int count = 0;
+            int l = matrix[0].Length;
+            int r = matrix.Length;
+            bool right=true, left=false,down=false,up=false;
+
+            List<int> list = new List<int>();
+            for (int i = 0;i < r *l; i++)
+            {
+                if (right)
+                {
+                    list.Add(matrix[row][col++]);
+                    if (col == l-count)
+                    {
+                        right = false;
+                        down = true; col--; row++;
+                        continue;
+                    }
+                }
+                if(down)
+                {
+                    list.Add(matrix[row++][col]);
+                    if(row == r-count)
+                    {
+                        down = false;
+                        left = true; row--; col--;
+                        continue;
+                    }
+                }
+                if (left)
+                {
+                    list.Add(matrix[row][col]);
+                    if(col==count)
+                    {
+                        left = false;
+                        up = true;row--; count++;
+                        continue;
+                    }
+                    else
+                        col--;
+                }
+                if(up)
+                {
+                    list.Add(matrix[row][col]);
+                    if(row==count)
+                    {
+                        up = false;
+                        right=true; col++;
+                    }
+                    else
+                        row--;
+                }
+            }
+
+            return list;    
+        }
     }
 }
+ 

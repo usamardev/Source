@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\QWER\\Source\\LeetCodeTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B96D037B-EEB3-457B-835B-BBF9F7F3D38F}|LeetCodeTest\\LeetCodeTest.csproj|d:\\qwer\\source\\leetcodetest\\leetcodetest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B96D037B-EEB3-457B-835B-BBF9F7F3D38F}|LeetCodeTest\\LeetCodeTest.csproj|solutionrelative:leetcodetest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B96D037B-EEB3-457B-835B-BBF9F7F3D38F}|LeetCodeTest\\LeetCodeTest.csproj|d:\\qwer\\source\\leetcodetest\\leetcodetest\\matrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B96D037B-EEB3-457B-835B-BBF9F7F3D38F}|LeetCodeTest\\LeetCodeTest.csproj|solutionrelative:leetcodetest\\matrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B96D037B-EEB3-457B-835B-BBF9F7F3D38F}|LeetCodeTest\\LeetCodeTest.csproj|d:\\qwer\\source\\leetcodetest\\leetcodetest\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B96D037B-EEB3-457B-835B-BBF9F7F3D38F}|LeetCodeTest\\LeetCodeTest.csproj|solutionrelative:leetcodetest\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B96D037B-EEB3-457B-835B-BBF9F7F3D38F}|LeetCodeTest\\LeetCodeTest.csproj|d:\\qwer\\source\\leetcodetest\\leetcodetest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B96D037B-EEB3-457B-835B-BBF9F7F3D38F}|LeetCodeTest\\LeetCodeTest.csproj|solutionrelative:leetcodetest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Test.cs",
-              "DocumentMoniker": "D:\\QWER\\Source\\LeetCodeTest\\LeetCodeTest\\Test.cs",
-              "RelativeDocumentMoniker": "LeetCodeTest\\Test.cs",
-              "ToolTip": "D:\\QWER\\Source\\LeetCodeTest\\LeetCodeTest\\Test.cs",
-              "RelativeToolTip": "LeetCodeTest\\Test.cs",
-              "ViewState": "AgIAACoBAAAAAAAAAAAywJ8BAAAiAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Matrix.cs",
+              "DocumentMoniker": "D:\\QWER\\Source\\LeetCodeTest\\LeetCodeTest\\Matrix.cs",
+              "RelativeDocumentMoniker": "LeetCodeTest\\Matrix.cs",
+              "ToolTip": "D:\\QWER\\Source\\LeetCodeTest\\LeetCodeTest\\Matrix.cs*",
+              "RelativeToolTip": "LeetCodeTest\\Matrix.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T12:52:51.313Z",
+              "WhenOpened": "2025-09-19T06:21:14.517Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\QWER\\Source\\LeetCodeTest\\LeetCodeTest\\Program.cs",
               "RelativeDocumentMoniker": "LeetCodeTest\\Program.cs",
-              "ToolTip": "D:\\QWER\\Source\\LeetCodeTest\\LeetCodeTest\\Program.cs*",
-              "RelativeToolTip": "LeetCodeTest\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
+              "ToolTip": "D:\\QWER\\Source\\LeetCodeTest\\LeetCodeTest\\Program.cs",
+              "RelativeToolTip": "LeetCodeTest\\Program.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAA0wA0AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T07:18:29.814Z",
               "EditorCaption": ""

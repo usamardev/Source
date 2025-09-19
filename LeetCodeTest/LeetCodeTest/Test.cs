@@ -7,15 +7,15 @@ namespace LeetCodeTest
 
         public IList<string> FullJustify(string[] words, int maxWidth)
         {
-            int wordCount=0;
-            List<string> wordList = new List<string>();   
-            List<string> resultList = new List<string>();   
+            int wordCount = 0;
+            List<string> wordList = new List<string>();
+            List<string> resultList = new List<string>();
 
             foreach (string word in words)
             {
-                if (word.Length+wordCount > maxWidth)
+                if (word.Length + wordCount > maxWidth)
                 {
-                    resultList.Add(SplitIntoParts(wordList, maxWidth - (wordCount-1)));   
+                    resultList.Add(SplitIntoParts(wordList, maxWidth - (wordCount - 1)));
                     wordList = new List<string>();
                     wordList.Add(word);
                     wordCount = word.Length;
@@ -30,7 +30,7 @@ namespace LeetCodeTest
             string text = "";
             foreach (string word in wordList)
             {
-                text += word+" ";
+                text += word + " ";
             }
             text = text.TrimEnd();
             text += new string(' ', maxWidth - text.Length);
@@ -80,7 +80,7 @@ namespace LeetCodeTest
                 if (rightback)
                 {
                     count++;
-                    if (count == numRows-1)
+                    if (count == numRows - 1)
                         rightback = false;
                 }
                 else
@@ -96,13 +96,13 @@ namespace LeetCodeTest
             return resultString;
         }
 
-        public string SplitIntoParts(List<string> words,int allCount)
+        public string SplitIntoParts(List<string> words, int allCount)
         {
             int count = words.Count - 1;
             allCount += count;
-            int spaceCount = (count == 0)? 1 : count;
-            if(spaceCount>=allCount)
-                allCount = allCount+spaceCount;
+            int spaceCount = (count == 0) ? 1 : count;
+            if (spaceCount >= allCount)
+                allCount = allCount + spaceCount;
 
             int baseValue = allCount / spaceCount;
             int remainder = allCount % spaceCount;
@@ -158,9 +158,9 @@ namespace LeetCodeTest
             for (int i = 0; i < length; i++)
             {
                 int a = t.IndexOf(s[i]);
-                if (a !=-1)
+                if (a != -1)
                 {
-                    t = t.Substring(a+1);
+                    t = t.Substring(a + 1);
                     if (t.Length < length - 1 - i)
                         return false;
                 }
@@ -184,7 +184,7 @@ namespace LeetCodeTest
                     break;
                 }
             }
-            
+
 
             for (int i = height.Length - 1; i >= 0; i--)
             {
@@ -243,9 +243,9 @@ namespace LeetCodeTest
                 }
             }
 
-            for(int m=0;m<result.Count-2;m++)
+            for (int m = 0; m < result.Count - 2; m++)
             {
-                if(result[m] == result[m+1])
+                if (result[m] == result[m + 1])
                     result.Remove(result[m]);
             }
             return result;
@@ -260,7 +260,7 @@ namespace LeetCodeTest
 
             for (int i = 0; i < n; i++)
             {
-                sum += nums[i]; 
+                sum += nums[i];
 
                 while (sum >= target)
                 {
@@ -283,16 +283,16 @@ namespace LeetCodeTest
 
             for (int i = 1; i < s.Length; i++)
             {
-                l = i-1;
-                while(l>=index)
+                l = i - 1;
+                while (l >= index)
                 {
-                    if(s[l] == s[i])
+                    if (s[l] == s[i])
                     {
-                        index=l+1; break;
+                        index = l + 1; break;
                     }
                     l--;
                 }
-                maxLen=Max(maxLen, i-index+1);
+                maxLen = Max(maxLen, i - index + 1);
             }
             return maxLen;
         }
@@ -304,13 +304,13 @@ namespace LeetCodeTest
             {
                 return "";
             }
-            int minLen=int.MaxValue;
+            int minLen = int.MaxValue;
             int startindex = 0;
             int endindex = 1;
-            bool result=true;
+            bool result = true;
             Dictionary<char, int> countS = new Dictionary<char, int>();
 
-            for (int i = 0;i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 if (!countS.ContainsKey(s[i]))
                     countS[s[i]] = 0;
@@ -343,10 +343,10 @@ namespace LeetCodeTest
                 {
                     return false;
                 }
-                countS[c]--; 
+                countS[c]--;
             }
 
-            return true; 
+            return true;
         }
 
         public string MinWindowTest(string s, string t)
@@ -401,23 +401,106 @@ namespace LeetCodeTest
             if (s.Length < totalLength)
                 return result;
 
+            Dictionary<string, int> dic = new Dictionary<string, int>();
+            foreach (string word in words)
+            {
+                if (dic.ContainsKey(word))
+                    dic[word]++;
+                else
+                    dic[word] = 1;
+            }
+
             for (int i = totalLength; i <= s.Length; i++)
             {
-                string text = s.Substring(i - totalLength, totalLength);
-
-                for (int j = 0; j < words.Length; j++)
+                Dictionary<string, int> dic1 = new Dictionary<string, int>(dic); ;
+               
+                for (int j = 0; j < totalLength; j += wordLength)
                 {
-                    int index = (text.IndexOf(words[j]));
-                    if  (index>= 0)
-                        text = ReplaceAt(text,index, "", words[j].Length);
+                    string t = s.Substring(i - totalLength+j, wordLength);
+
+                    if (dic1.ContainsKey(t))
+                    {
+                        if (dic1[t] == 0)
+                            break;
+                        dic1[t]--;
+                    }
                     else
                         break;
                 }
-                if(text.Length<=0)
-                    result.Add(i-totalLength);
+
+                if (dic1.Values.Sum(x => x) == 0)
+                    result.Add(i - totalLength);
 
             }
             return result;
+
+            //IList<int> result = new List<int>();
+
+            //if (s.Length == 0 || words.Length == 0)
+            //    return result;
+
+            //int wordLength = words[0].Length; // Length of each word in the words array
+            //int totalWords = words.Length; // Total number of words in the words array
+            //int substringLength = wordLength * totalWords; // Length of the concatenated substring
+
+            //if (s.Length < substringLength)
+            //    return result;
+
+            //Dictionary<string, int> wordCount = new Dictionary<string, int>();
+            //foreach (string word in words)
+            //{
+            //    if (wordCount.ContainsKey(word))
+            //        wordCount[word]++;
+            //    else
+            //        wordCount[word] = 1;
+            //}
+            //for (int i = 0; i < wordLength; i++)
+            //{
+            //    Dictionary<string, int> currentWordCount = new Dictionary<string, int>();
+            //    int wordsFound = 0;
+            //    int left = i;
+
+            //    for (int j = i; j <= s.Length - wordLength; j += wordLength)
+            //    {
+            //        string currentWord = s.Substring(j, wordLength);
+
+            //        if (wordCount.ContainsKey(currentWord))
+            //        {
+            //            if (currentWordCount.ContainsKey(currentWord))
+            //                currentWordCount[currentWord]++;
+            //            else
+            //                currentWordCount[currentWord] = 1;
+
+            //            wordsFound++;
+
+            //            while (currentWordCount[currentWord] > wordCount[currentWord])
+            //            {
+            //                string leftWord = s.Substring(left, wordLength);
+            //                currentWordCount[leftWord]--;
+            //                wordsFound--;
+            //                left += wordLength;
+            //            }
+
+            //            if (wordsFound == totalWords)
+            //            {
+            //                result.Add(left);
+            //                string leftWord = s.Substring(left, wordLength);
+            //                currentWordCount[leftWord]--;
+            //                wordsFound--;
+            //                left += wordLength;
+            //            }
+            //        }
+
+            //        else
+            //        {
+            //            currentWordCount.Clear();
+            //            wordsFound = 0;
+            //            left = j + wordLength;
+            //        }
+            //    }
+            //}
+
+            //return result;
         }
 
         public string ReplaceAt(string str, int index, string newStr, int length)

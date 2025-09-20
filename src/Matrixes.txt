@@ -1,0 +1,109 @@
+ public IList<int> SpiralOrder(int[][] matrix)
+ {
+     int col = 0;
+     int row = 0;
+
+     int count = 0;
+     int l = matrix[0].Length;
+     int r = matrix.Length;
+
+     int RightLeftDownUp = 0;
+
+     List<int> list = new List<int>();
+     for (int i = 0; i < r * l; i++)
+     {
+
+         switch (RightLeftDownUp)
+         {
+             case 0:
+                 list.Add(matrix[row][col++]);
+                 if (col == l - count)
+                 {
+                     RightLeftDownUp = 1;
+                     col--; row++;
+                 }
+                 break;
+             case 1:
+                 list.Add(matrix[row++][col]);
+                 if (row == r - count)
+                 {
+                     RightLeftDownUp = 2;
+                     row--; col--;
+                 }
+                 break;
+             case 2:
+                 list.Add(matrix[row][col]);
+                 if (col == count)
+                 {
+                     RightLeftDownUp = 3; 
+                     row--; count++;
+                 }
+                 else
+                     col--;
+                 break;
+             case 3:
+                 list.Add(matrix[row][col]);
+                 if (row == count)
+                 {
+                     RightLeftDownUp = 0;
+                     col++;
+                 }
+                 else
+                     row--;
+                 break;
+         }
+     }
+
+     return list;
+ }
+
+ public void Rotate(int[][] matrix)
+ {
+     int length=matrix.Length;
+     int[,] ints = new int[length,length];
+
+     for (int i = 0; i < length; i++)
+     {
+         for (int j = 0; j < length; j++)
+         {
+             ints[j,length-1-i]= matrix[i][j];
+         }
+     }
+
+     for (int i = 0; i < length; i++)
+     {
+         for (int j = 0; j < length; j++)
+         {
+             matrix[i][j]= ints[i,j];
+         }
+     }
+ }
+
+ public void SetZeroes(int[][] matrix)
+ {
+     HashSet<int> set = new HashSet<int>();  
+
+     for (int i = 0;i < matrix.Length;i++)
+     {
+         for (int j = 0; j < matrix[i].Length; j++)
+         {
+             if (matrix[i][j] == 0)
+             {
+                 set.Add((i+1)*1);
+                 set.Add((j+1)*-1);
+             }
+         }
+     }
+
+     for (int i = 0; i < matrix.Length; i++)
+     {
+         for (int j = 0; j < matrix[i].Length; j++)
+         {
+             if(set.Contains((i+1)*1)||set.Contains((j+1)*-1))
+             {
+                 matrix[i][j] = 0;
+                 continue;
+             }
+         }
+     }
+ }

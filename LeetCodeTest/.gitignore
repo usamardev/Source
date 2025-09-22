@@ -13,6 +13,34 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# Rider va boshqa IDE’lar
+.idea/
+
+# Paket cache
+packages/
+*.nupkg
+
+# Publish / wwwroot generated
+wwwroot/
+project.lock.json
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Others
+*.dbmdl
+*.bak
+*.cache
+
+# Visual Studio specific
+.vs/
+*.user
+*.suo
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -23,9 +51,14 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
+[Bb]uild/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+bin/
+obj/
+Debug/
+Release/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -338,13 +371,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/Projects/CabinetAutoPaymentApi/log20210804.txt
-/Projects/BackgroundServiceApi/log_background_2022090421.txt
-/Projects/CabinetAutoPaymentApi/log_cabinet_2022090421.txt
-/Projects/CabinetAutoPaymentApi/log_cabinet_2023083016.txt
-/Projects/CabinetAutoPaymentApi/err_log_cabinet_2023092115.txt
-/Projects/CabinetAutoPaymentApi/err_log_cabinet_2024080812.txt
-/Projects/CabinetAutoPaymentApi/log_cabinet_2024080811.txt
-/Projects/CabinetAutoPaymentApi/log_cabinet_2024080812.txt
-/Projects/CabinetAutoPaymentApi/log_cabinet_2024080813.txt
-/Projects/CabinetAutoPaymentApi/log_cabinet_2024080816.txt
+

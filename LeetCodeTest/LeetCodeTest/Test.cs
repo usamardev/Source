@@ -4,7 +4,6 @@ namespace LeetCodeTest
 {
     public class Test
     {
-
         public IList<string> FullJustify(string[] words, int maxWidth)
         {
             int wordCount = 0;

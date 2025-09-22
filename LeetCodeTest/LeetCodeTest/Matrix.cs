@@ -2,6 +2,36 @@
 {
     public class Matrix
     {
+        public void SetZeroes(int[][] matrix)
+        {
+            HashSet<int> set = new HashSet<int>();
+
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    if (matrix[i][j] == 0)
+                    {
+                        set.Add((i + 1) * 1);
+                        set.Add((j + 1) * -1);
+                    }
+                }
+            }
+
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    if (set.Contains((i + 1) * 1) || set.Contains((j + 1) * -1))
+                    {
+                        matrix[i][j] = 0;
+                        continue;
+                    }
+                }
+            }
+        }
+
+
         /*num + " in box " + (i/3) + "-" + (j/3)
         Sudoku 3x3 bo‘laklarga bo‘lingan.        
         (i/3, j/3) orqali qaysi 3x3 qutiga tegishli ekanini topamiz.        

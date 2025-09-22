@@ -6,7 +6,8 @@
         {
             Test test = new Test();
             Hashmap hashmap = new Hashmap();
-            Matrix matrix= new Matrix();
+            Matrix matrix = new Matrix();
+            Intervals interval = new Intervals();
 
             //matrix.IsValidSudoku(
             //    [
@@ -21,7 +22,8 @@
             //     ['.', '.', '.', '.', '8', '.', '.', '7', '9']
             //    ]);
 
-            matrix.SpiralOrder([[1, 2, 3, 4,5,6], [7, 8, 9, 10,11,12], [13, 14, 15, 16,17,18]]);
+            interval.Insert([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4,8]);
+
             Console.WriteLine("Hello, World!");
 
         }

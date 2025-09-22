@@ -4,7 +4,7 @@
     {
         public int[][] Insert(int[][] intervals, int[] newInterval)
         {
-            var result = new List<int[]>();
+            List<int[]> result = new List<int[]>();
 
             foreach (var interval in intervals)
             {
@@ -23,9 +23,7 @@
                     newInterval[1] = Math.Max(newInterval[1], interval[1]);
                 }
             }
-
             result.Add(newInterval);
-
             return result.ToArray();
         }
 

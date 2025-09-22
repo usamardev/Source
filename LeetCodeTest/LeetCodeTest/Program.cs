@@ -8,6 +8,7 @@
             Hashmap hashmap = new Hashmap();
             Matrix matrix = new Matrix();
             Intervals interval = new Intervals();
+            Stack stack = new Stack();
 
             //matrix.IsValidSudoku(
             //    [
@@ -22,7 +23,9 @@
             //     ['.', '.', '.', '.', '8', '.', '.', '7', '9']
             //    ]);
 
-            interval.Insert([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4,8]);
+            //interval.Insert([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4,8]);
+
+            stack.Calculate("1-(     -2)");
 
             Console.WriteLine("Hello, World!");
 

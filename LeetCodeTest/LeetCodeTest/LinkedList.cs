@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Xml.Linq;
 
 namespace LeetCodeTest
 {
@@ -153,6 +154,33 @@ namespace LeetCodeTest
             return d.next; ;
         }
 
+        public Node CopyRandomList(Node head)
+        {
+            if (head == null) return null;
+
+            Dictionary<Node, Node> map = new Dictionary<Node, Node>();
+
+            // 1. Birinchi yurish: clone tugunlarni yaratish
+            Node curr = head;
+            while (curr != null)
+            {
+                map[curr] = new Node(curr.val);
+                curr = curr.next;
+            }
+
+            // 2. Ikkinchi yurish: next va random ni sozlash
+            curr = head;
+            while (curr != null)
+            {
+                map[curr].next = curr.next != null ? map[curr.next] : null;
+                map[curr].random = curr.random != null ? map[curr.random] : null;
+                curr = curr.next;
+            }
+
+            // 3. Yangi headni qaytarish
+            return map[head];
+        }
+
     }
     public class ListNode
     {
@@ -162,6 +190,19 @@ namespace LeetCodeTest
         {
             val = x;
             next = null;
+        }
+    }
+    public class Node
+    {
+        public int val;
+        public Node next;
+        public Node random;
+
+        public Node(int _val)
+        {
+            val = _val;
+            next = null;
+            random = null;
         }
     }
 }

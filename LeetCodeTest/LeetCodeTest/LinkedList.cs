@@ -272,6 +272,32 @@ namespace LeetCodeTest
             return head;
         }
 
+        public ListNode RemoveNthFromEnd(ListNode head, int n)
+        {
+            ListNode dummy = new ListNode(0);
+            dummy.next = head;
+
+            ListNode first = dummy;
+            ListNode second = dummy;
+
+            // 1. first pointerni n+1 qadam oldinga olib ketamiz
+            for (int i = 0; i <= n; i++)
+            {
+                first = first.next;
+            }
+
+            // 2. first oxiriga yetguncha birga yuramiz
+            while (first != null)
+            {
+                first = first.next;
+                second = second.next;
+            }
+
+            // 3. second.next o'chiriladi
+            second.next = second.next.next;
+
+            return dummy.next;
+        }
 
     }
     public class ListNode

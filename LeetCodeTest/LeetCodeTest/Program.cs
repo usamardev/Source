@@ -41,7 +41,7 @@
             //head.next.next.next.next = head.next;
 
             //linked.HasCycle(head);
-            linked.ReverseKGroup(head,2);
+            linked.RemoveNthFromEnd(head,2);
 
             Console.WriteLine("Hello, World!");
 

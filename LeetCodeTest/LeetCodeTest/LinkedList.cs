@@ -299,6 +299,31 @@ namespace LeetCodeTest
             return dummy.next;
         }
 
+        public ListNode DeleteDuplicates(ListNode head)
+        {
+            ListNode first = new ListNode(0);
+            first.next = head;  
+
+            ListNode second = first;
+
+            while(head != null)
+            {
+                if (head.next != null&&head.val==head.next.val)
+                {
+                    while (head.next != null && head.val == head.next.val)
+                    {
+                        head=head.next;
+                    }
+                    second.next=head.next;
+                }else
+                {
+                    second = second.next;
+                }
+                head = head.next;   
+            }
+            return first.next;
+        }
+
     }
     public class ListNode
     {

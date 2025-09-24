@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using System.Xml.Linq;
 
 namespace LeetCodeTest
@@ -180,6 +181,97 @@ namespace LeetCodeTest
             // 3. Yangi headni qaytarish
             return map[head];
         }
+
+        public ListNode ReverseBetween(ListNode head, int left, int right)
+        {
+            if (head == null || left == right) return head;
+            List<int> list = new List<int>();
+            ListNode dummy = new ListNode(0);
+            dummy.next = head;
+
+            for(int i=1;i<=right+1;i++)
+            {
+                if(i>left) 
+                    list.Add(dummy.val);
+                dummy=dummy.next;
+            }
+            int index=list.Count-1;
+            dummy=head;
+            for(int i=1;i<=right;i++)
+            {
+                if(i>=left)
+                {
+                    dummy.val = list[index];
+                    index--;
+                }
+                dummy = dummy.next;
+            }
+
+            return head;
+        }
+        public ListNode ReverseBetweenGPTVersion(ListNode head, int left, int right)
+        {
+            if (head == null || left == right) return head;
+
+            ListNode dummy = new ListNode(0);
+            dummy.next = head;
+
+            // 1. left - 1 pozitsiyaga boramiz
+            ListNode prev = dummy;
+            for (int i = 1; i < left; i++)
+            {
+                prev = prev.next;
+            }
+
+            // 2. reversal boshlanadigan joy
+            ListNode curr = prev.next;
+            ListNode next = null;
+
+            // 3. Reverse qilish (right - left) marta
+            for (int i = 0; i < right - left; i++)
+            {
+                next = curr.next;
+                curr.next = next.next;
+                next.next = prev.next;
+                prev.next = next;
+            }
+
+            return dummy.next;
+        }
+
+        public ListNode ReverseKGroup(ListNode head, int k)
+        {
+            if (head == null || k==1) return head;
+
+            List<int> list = new List<int>();   
+            ListNode dummy = new ListNode(0);   
+
+            dummy.next = head;
+
+            while (dummy.next != null)
+            {
+                list.Add(dummy.next.val);
+                dummy = dummy.next;
+            }
+
+            dummy=head;
+            int forCount = list.Count-(list.Count%k);
+            int index = k-1,count=0;
+            for (int i = 0; i < forCount; i++)
+            {
+                dummy.val = list[index];
+                if(index==count)
+                {
+                    index = i + k + 1;
+                    count = i + 1;
+                }
+                index--;
+                dummy = dummy.next; 
+            }
+
+            return head;
+        }
+
 
     }
     public class ListNode

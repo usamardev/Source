@@ -30,7 +30,9 @@
 
             ListNode head = new ListNode(1);
             head.next = new ListNode(2);
-            head.next.next = new ListNode(4);
+            head.next.next = new ListNode(3);
+            head.next.next.next = new ListNode(4);
+            head.next.next.next.next = new ListNode(5);
 
             ListNode head1 = new ListNode(1);
             head1.next = new ListNode(3);
@@ -39,7 +41,7 @@
             //head.next.next.next.next = head.next;
 
             //linked.HasCycle(head);
-            linked.MergeTwoLists(head1, head1);
+            linked.ReverseKGroup(head,2);
 
             Console.WriteLine("Hello, World!");
 

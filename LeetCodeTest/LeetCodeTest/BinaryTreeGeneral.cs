@@ -11,6 +11,18 @@
 
             return Math.Max(leftDepth, rightDepth) + 1;
         }
+
+        public bool IsSameTree(TreeNode p, TreeNode q)
+        {
+            if (p == null && q == null)
+                return true;
+            if ((p == null && q != null) || (p != null && q == null))
+                return false;
+            if (p?.val != q?.val)
+                return false;
+            return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
+        }
+
     }
     public class TreeNode
     {

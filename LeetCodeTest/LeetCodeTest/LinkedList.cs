@@ -360,6 +360,36 @@ namespace LeetCodeTest
             return newHead;
         }
 
+        public ListNode Partition(ListNode head, int x)
+        {
+            // Dummy boshlang'ich tugunlar
+            ListNode beforeHead = new ListNode(0);
+            ListNode afterHead = new ListNode(0);
+
+            ListNode before = beforeHead;
+            ListNode after = afterHead;
+
+            while (head != null)
+            {
+                if (head.val < x)
+                {
+                    before.next = head;   // kichik bo'lsa before ga qo'shamiz
+                    before = before.next;
+                }
+                else
+                {
+                    after.next = head;    // katta yoki teng bo'lsa after ga qo'shamiz
+                    after = after.next;
+                }
+                head = head.next;
+            }
+
+            after.next = null;           // dumni uzib qo'yamiz
+            before.next = afterHead.next; // ikki listni birlashtiramiz
+
+            return beforeHead.next;
+        }
+
     }
     public class ListNode
     {

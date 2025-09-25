@@ -28,21 +28,33 @@
 
             //stack.Calculate("1-(     -2)");  
 
-            ListNode head = new ListNode(1);
-            head.next = new ListNode(4);
-            head.next.next = new ListNode(3);
-            head.next.next.next = new ListNode(2);
-            head.next.next.next.next = new ListNode(2);
-            head.next.next.next.next.next = new ListNode(5);
+            //ListNode head = new ListNode(1);
+            //head.next = new ListNode(4);
+            //head.next.next = new ListNode(3);
+            //head.next.next.next = new ListNode(2);
+            //head.next.next.next.next = new ListNode(2);
+            //head.next.next.next.next.next = new ListNode(5);
 
-            ListNode head1 = new ListNode(1);
-            head1.next = new ListNode(3);
-            head1.next.next = new ListNode(4);
+            //ListNode head1 = new ListNode(1);
+            //head1.next = new ListNode(3);
+            //head1.next.next = new ListNode(4);
 
             //head.next.next.next.next = head.next;
 
             //linked.HasCycle(head);
-            linked.Partition(head,3);
+            //linked.Partition(head,3);
+
+            BinaryTreeGeneral binaryTreeGeneral = new BinaryTreeGeneral();
+
+            TreeNode root = new TreeNode(3,
+                new TreeNode(9),
+                new TreeNode(20,
+                    new TreeNode(15),
+                    new TreeNode(7)
+                )
+            );
+
+            binaryTreeGeneral.MaxDepth(root);
 
             Console.WriteLine("Hello, World!");
 

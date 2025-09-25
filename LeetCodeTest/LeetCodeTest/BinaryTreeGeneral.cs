@@ -23,6 +23,17 @@
             return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
         }
 
+        public TreeNode InvertTree(TreeNode root)
+        {
+            if (root is null) return root;
+            TreeNode treeNode = root.left;
+            root.left=root.right;
+            root.right=treeNode;
+            InvertTree(root.left);
+            InvertTree(root.right);
+            return root;
+        }
+
     }
     public class TreeNode
     {

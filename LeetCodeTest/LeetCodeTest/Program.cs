@@ -54,7 +54,7 @@
                 )
             );
 
-            binaryTreeGeneral.MaxDepth(root);
+            binaryTreeGeneral.InvertTree(root);
 
             Console.WriteLine("Hello, World!");
 

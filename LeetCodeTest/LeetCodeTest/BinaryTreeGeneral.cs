@@ -47,6 +47,16 @@
             return check(left?.left, right.right) && check(left.right, right.left);
         }
 
+        //public TreeNode BuildTree(int[] preorder, int[] inorder)
+        //{
+        //    Cut()
+        //}
+
+        //public void Cut(out int[] left, out int[] right,int val, int[] inorder)
+        //{
+
+        //}
+
     }
     public class TreeNode
     {

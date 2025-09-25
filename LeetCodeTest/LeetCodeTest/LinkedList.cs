@@ -324,6 +324,42 @@ namespace LeetCodeTest
             return first.next;
         }
 
+        public ListNode RotateRight(ListNode head, int k)
+        {
+            if (head == null || head.next == null || k == 0)
+                return head;
+
+            // 1. Uzunlikni topamiz va dum node ni olamiz
+            int n = 1;
+            ListNode tail = head;
+            while (tail.next != null)
+            {
+                tail = tail.next;
+                n++;
+            }
+
+            // 2. k ni optimallashtiramiz
+            k = k % n;
+            if (k == 0) return head;
+
+            // 3. Dumni boshga bog‘lab aylana qilamiz
+            tail.next = head;
+
+            // 4. Yangi tail pozitsiyasi: n - k qadam yuramiz
+            int stepsToNewHead = n - k;
+            ListNode newTail = head;
+            for (int i = 1; i < stepsToNewHead; i++)
+            {
+                newTail = newTail.next;
+            }
+
+            // 5. Yangi head va tail
+            ListNode newHead = newTail.next;
+            newTail.next = null;
+
+            return newHead;
+        }
+
     }
     public class ListNode
     {

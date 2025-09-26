@@ -56,6 +56,7 @@
 
             binaryTreeGeneral.InvertTree(root);
             binaryTreeGeneral.BuildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]);
+            binaryTreeGeneral.BuildTree2([9, 15, 7, 20, 3], [9, 3, 15, 20, 7]);
 
             Console.WriteLine("Hello, World!");
 

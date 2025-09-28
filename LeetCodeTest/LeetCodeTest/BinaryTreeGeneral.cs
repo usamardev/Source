@@ -59,16 +59,16 @@
 
             return root;
         }
-        public TreeNode BuildTree2(int[] postorder, int[] inorder)
+        public TreeNode BuildTree2(int[] inorder, int[] postorder)
         {
-            if (postorder is null || !postorder.Any() ||
-               inorder is null || !inorder.Any()) return null;
+            if (inorder.Length == 0 && postorder.Length == 0) return null;
 
-            TreeNode root = new TreeNode(postorder[postorder.Length-1]);
-            int middle = Array.IndexOf(inorder, postorder[postorder.Length - 1]);
-            
-            root.right = BuildTree2(postorder[..(postorder.Length - 1)], inorder[(middle + 1)..]);
-            root.left = BuildTree2(postorder[..(postorder.Length - 1)], inorder[..(middle)]);
+            int a=postorder.Last();
+            int index=Array.IndexOf(inorder, a);
+            TreeNode root = new TreeNode(a);
+
+            root.right = BuildTree2(inorder[(index+1)..], postorder[index..^1]);
+            root.left = BuildTree2(inorder[..index], postorder[..index]);
 
             return root;
         }

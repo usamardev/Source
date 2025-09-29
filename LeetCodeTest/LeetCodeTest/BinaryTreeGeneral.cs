@@ -118,6 +118,21 @@
             }
             curr.right = right;
         }
+
+        public bool HasPathSum(TreeNode root, int targetSum)
+        {
+            if (root == null) return false;
+
+            // Agar barg bo'lsa
+            if (root.left == null && root.right == null)
+            {
+                return targetSum == root.val;
+            }
+
+            // Rekursiv tekshirish
+            return HasPathSum(root.left, targetSum - root.val) ||
+                   HasPathSum(root.right, targetSum - root.val);
+        }
     }
 
     public class Node

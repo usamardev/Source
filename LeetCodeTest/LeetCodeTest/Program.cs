@@ -58,16 +58,31 @@
             //binaryTreeGeneral.BuildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]);
             //var a=binaryTreeGeneral.BuildTree2([9, 15, 7, 20, 3], [9, 3, 15, 20, 7]);
 
-            TreeNode root = new TreeNode(1);
-            root.left = new TreeNode(2);
-            root.right = new TreeNode(5);
+            TreeNode root = new TreeNode(5);
+            //root.left = new TreeNode(2);
+            //root.right = new TreeNode(5);
 
-            root.left.left = new TreeNode(3);
-            root.left.right = new TreeNode(4);
+            //root.left.left = new TreeNode(3);
+            //root.left.right = new TreeNode(4);
 
-            root.right.right = new TreeNode(6);
+            //root.right.right = new TreeNode(6);
 
-            binaryTreeGeneral.Flatten(root);
+            //binaryTreeGeneral.Flatten(root);
+
+            root.left = new TreeNode(4);
+            root.right = new TreeNode(8);
+
+            root.left.left = new TreeNode(11);
+
+            //root.left.left.left = new TreeNode(7);
+            root.left.left.right = new TreeNode(2);
+
+            root.right.left = new TreeNode(13);
+            root.right.right = new TreeNode(4);
+
+            root.right.right.right = new TreeNode(1);
+
+            binaryTreeGeneral.HasPathSum(root, 22);
 
             Console.WriteLine("Hello, World!");
 

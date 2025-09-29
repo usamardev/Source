@@ -1,5 +1,8 @@
+using Auth.Services;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
+using System.Text;
 
 namespace Auth
 {
@@ -11,6 +14,8 @@ namespace Auth
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddSwaggerGen(options =>
             {
                 options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -22,7 +27,17 @@ namespace Auth
 
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
-            builder.Services.AddAuthentication().AddJwtBearer();
+            builder.Services.AddAuthentication().AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateAudience = false,
+                    ValidateIssuer = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                        builder.Configuration.GetSection("AppSettings:Token").Value!))
+                };
+            });
 
             var app = builder.Build();
 

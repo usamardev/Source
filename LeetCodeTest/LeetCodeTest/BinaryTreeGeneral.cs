@@ -94,6 +94,30 @@
             }
             return root;
         }
+
+        public void Flatten(TreeNode root)
+        {
+            if (root == null) return;
+
+            Flatten(root.left);
+            Flatten(root.right);
+
+            // chapni saqlab qo‘yish
+            TreeNode left = root.left;
+            TreeNode right = root.right;
+
+            // chapni o‘ngga o‘tkazish
+            root.left = null;
+            root.right = left;
+
+            // oxirigacha borib, o‘ngni ulash
+            TreeNode curr = root;
+            while (curr.right != null)
+            {
+                curr = curr.right;
+            }
+            curr.right = right;
+        }
     }
 
     public class Node

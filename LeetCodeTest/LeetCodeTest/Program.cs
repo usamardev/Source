@@ -46,17 +46,28 @@
 
             BinaryTreeGeneral binaryTreeGeneral = new BinaryTreeGeneral();
 
-            TreeNode root = new TreeNode(3,
-                new TreeNode(9),
-                new TreeNode(20,
-                    new TreeNode(15),
-                    new TreeNode(7)
-                )
-            );
+            //TreeNode root = new TreeNode(3,
+            //    new TreeNode(9),
+            //    new TreeNode(20,
+            //        new TreeNode(15),
+            //        new TreeNode(7)
+            //    )
+            //);
 
-            binaryTreeGeneral.InvertTree(root);
-            binaryTreeGeneral.BuildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]);
-            var a=binaryTreeGeneral.BuildTree2([9, 15, 7, 20, 3], [9, 3, 15, 20, 7]);
+            //binaryTreeGeneral.InvertTree(root);
+            //binaryTreeGeneral.BuildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]);
+            //var a=binaryTreeGeneral.BuildTree2([9, 15, 7, 20, 3], [9, 3, 15, 20, 7]);
+
+            TreeNode root = new TreeNode(1);
+            root.left = new TreeNode(2);
+            root.right = new TreeNode(5);
+
+            root.left.left = new TreeNode(3);
+            root.left.right = new TreeNode(4);
+
+            root.right.right = new TreeNode(6);
+
+            binaryTreeGeneral.Flatten(root);
 
             Console.WriteLine("Hello, World!");
 

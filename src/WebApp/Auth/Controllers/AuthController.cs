@@ -12,5 +12,10 @@ namespace Auth.Controllers
         {
             return View();
         }
+
+        //private string CreateToken(User user)
+        //{
+
+        //}
     }
 }

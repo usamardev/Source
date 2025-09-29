@@ -73,8 +73,27 @@
             return root;
         }
 
+        public Node Connect(Node root)
+        {
+            if (root == null) return null;
+            Queue<Node> q = new Queue<Node>();
+            q.Enqueue(root);
+            while (q.Count > 0)
+            {
+                int size = q.Count;
+                Node prev = null;
+                for (int i = 0; i < size; i++)
+                {
+                    Node node = q.Dequeue();
+                    if (prev != null) prev.next = node;
+                    prev = node;
 
-
+                    if (node.left != null) q.Enqueue(node.left);
+                    if (node.right != null) q.Enqueue(node.right);
+                }
+            }
+            return root;
+        }
     }
 
     public class Node

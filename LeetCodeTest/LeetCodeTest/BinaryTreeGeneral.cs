@@ -133,6 +133,27 @@
             return HasPathSum(root.left, targetSum - root.val) ||
                    HasPathSum(root.right, targetSum - root.val);
         }
+
+        public int SumNumbers(TreeNode root)
+        {
+            if (root == null) return 0;
+            return SumSumNumbers(root,0);
+        }
+
+        public int SumSumNumbers(TreeNode tree,int sum)
+        {
+            if(tree == null) return 0;
+
+            sum = (sum * 10) + tree.val;
+
+            if(tree.left==null&&tree.right==null)
+            {
+                return sum;
+            }
+            int left = SumSumNumbers(tree.left, sum);
+            int right= SumSumNumbers(tree.right, sum);
+            return left+right;
+        }
     }
 
     public class Node

@@ -155,17 +155,17 @@ namespace LeetCodeTest
             return d.next; ;
         }
 
-        public Node CopyRandomList(Node head)
+        public NodeLinked CopyRandomList(NodeLinked head)
         {
             if (head == null) return null;
 
-            Dictionary<Node, Node> map = new Dictionary<Node, Node>();
+            Dictionary<NodeLinked, NodeLinked> map = new Dictionary<NodeLinked, NodeLinked>();
 
             // 1. Birinchi yurish: clone tugunlarni yaratish
-            Node curr = head;
+            NodeLinked curr = head;
             while (curr != null)
             {
-                map[curr] = new Node(curr.val);
+                map[curr] = new NodeLinked(curr.val);
                 curr = curr.next;
             }
 
@@ -401,13 +401,13 @@ namespace LeetCodeTest
             next = null;
         }
     }
-    public class Node
+    public class NodeLinked
     {
         public int val;
-        public Node next;
-        public Node random;
+        public NodeLinked next;
+        public NodeLinked random;
 
-        public Node(int _val)
+        public NodeLinked(int _val)
         {
             val = _val;
             next = null;

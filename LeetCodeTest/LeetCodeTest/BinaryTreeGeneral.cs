@@ -1,4 +1,6 @@
-﻿namespace LeetCodeTest
+﻿using System.Xml.Linq;
+
+namespace LeetCodeTest
 {
     public class BinaryTreeGeneral
     {
@@ -154,6 +156,28 @@
             int right= SumSumNumbers(tree.right, sum);
             return left+right;
         }
+
+        int result = int.MinValue;
+
+        public int MaxPathSum(TreeNode root)
+        {
+            MaxPathSumAmount(root);
+            return result;
+        }
+        public int MaxPathSumAmount(TreeNode root)
+        {
+            if(root == null) return 0;
+
+            int left = MaxPathSumAmount(root.left);
+            int right= MaxPathSumAmount(root.right);
+
+            int currentMax = root.val + left + right;
+            result = Max(result, currentMax);
+
+            return root.val + Max(left, right);
+        }
+
+        public int Max(int a, int b) => a >= b ? a : b;
     }
 
     public class Node

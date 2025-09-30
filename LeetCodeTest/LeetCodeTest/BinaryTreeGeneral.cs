@@ -178,6 +178,15 @@ namespace LeetCodeTest
         }
 
         public int Max(int a, int b) => a >= b ? a : b;
+
+        int result=0;
+        public int CountNodes(TreeNode root) {
+            if (root is null) return 0;
+            result++;
+            CountNodes(root.left);
+            CountNodes(root.right);
+            return result;
+        }
     }
 
     public class Node

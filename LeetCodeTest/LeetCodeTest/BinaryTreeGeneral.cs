@@ -179,13 +179,24 @@ namespace LeetCodeTest
 
         public int Max(int a, int b) => a >= b ? a : b;
 
-        int result=0;
+        int res=0;
         public int CountNodes(TreeNode root) {
             if (root is null) return 0;
-            result++;
+            res++;
             CountNodes(root.left);
             CountNodes(root.right);
-            return result;
+            return res;
+        }
+
+        public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q)
+        {
+            if (root == null || root == p || root == q)
+                return root;
+            TreeNode left = LowestCommonAncestor(root.left, p, q);
+            TreeNode right = LowestCommonAncestor(root.right, p, q);
+            if (left != null && right != null)
+                return root;
+            return left != null ? left : right;
         }
     }
 

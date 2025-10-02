@@ -176,6 +176,39 @@ namespace LeetCodeTest
 
             return root.val + Max(left, right);
         }
+        private Stack<TreeNode> stack;
+        //public BinaryTreeGeneral(TreeNode root)
+        //{
+        //    stack = new Stack<TreeNode>();
+        //    PushLeft(root); // ildizdan boshlab chapga borib chiqamiz
+        //}
+        // Keyingi element bormi?
+        public bool HasNext()
+        {
+            return stack.Count > 0;
+        }
+        // Keyingi elementni qaytarish
+        public int Next()
+        {
+            TreeNode node = stack.Pop(); // eng kichikni olamiz
+            if (node.right != null)
+            {
+                PushLeft(node.right); // o‘ng bolasi bo‘lsa, uni ham stackka qo‘shamiz
+            }
+            return node.val;
+        }
+
+        // yordamchi funksiya: chapga borib stackga qo‘yish
+        private void PushLeft(TreeNode node)
+        {
+            while (node != null)
+            {
+                stack.Push(node);
+                node = node.left;
+            }
+        }
+
+
 
         public int Max(int a, int b) => a >= b ? a : b;
     }

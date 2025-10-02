@@ -100,8 +100,15 @@
             //root.right.right = new TreeNode(7);
             //int a = binaryTreeGeneral.MaxPathSum(root);
 
+            TreeNode treeNode = new TreeNode(1);
+            treeNode.right=new TreeNode(2);
+            treeNode.right.right=new TreeNode(5);
+            treeNode.right.right.right=new TreeNode(6);
+            treeNode.right.right.left=new TreeNode(4);
+            treeNode.right.right.left.left=new TreeNode(3);
+            BinaryTreeBFS binaryTreeBFS = new BinaryTreeBFS();
+            var a=binaryTreeBFS.RightSideView(treeNode);
             Console.WriteLine("Hello, World!");
-
         }
         
 

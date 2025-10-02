@@ -58,5 +58,37 @@
 
             return result;
         }
+
+        public IList<IList<int>> LevelOrder(TreeNode root)
+        {
+            IList<IList<int>> result = new List<IList<int>>();
+            if (root == null) return result;
+
+            result.Add(new List<int>() { root.val});
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+
+            while (queue.Count > 0)
+            {
+                int size = queue.Count;
+                List<int> list = new List<int>();
+                for (int i = 0; i < size; i++)
+                {
+                    TreeNode node = queue.Dequeue();
+
+                    if (node.left != null) list.Add(node.left.val);
+                    if (node.right != null) list.Add(node.right.val);
+
+                    if (node.left != null) queue.Enqueue(node.left);
+                    if (node.right != null) queue.Enqueue(node.right);
+                }
+
+                if (list.Count != 0)
+                    result.Add(list);
+            }
+
+            return result;
+
+        }
     }
 }

@@ -100,13 +100,13 @@
             //root.right.right = new TreeNode(7);
             //int a = binaryTreeGeneral.MaxPathSum(root);
 
-            TreeNode treeNode = new TreeNode(3);
-            treeNode.right=new TreeNode(20);
-            treeNode.left=new TreeNode(9);
-            treeNode.right.right=new TreeNode(7);
-            treeNode.right.left=new TreeNode(15);
-            BinaryTreeBFS binaryTreeBFS = new BinaryTreeBFS();
-            var a=binaryTreeBFS.LevelOrder(treeNode);
+            TreeNode treeNode = new TreeNode(4);
+            treeNode.right=new TreeNode(6);
+            treeNode.left=new TreeNode(2);
+            treeNode.left.right=new TreeNode(3);
+            treeNode.left.left=new TreeNode(1);
+            BinarySearchTree binaryTreeBFS = new BinarySearchTree();
+            var a=binaryTreeBFS.GetMinimumDifference(treeNode);
             Console.WriteLine("Hello, World!");
         }
         

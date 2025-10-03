@@ -12,7 +12,7 @@
             LinkedList linked= new LinkedList();
             BinaryTreeGeneral binaryTreeGeneral = new BinaryTreeGeneral();
             BinarySearchTree binaryTreeBFS = new BinarySearchTree();
-
+            GraphGeneral graphGeneral = new GraphGeneral();
             #region TestPart
             //matrix.IsValidSudoku(
             //    [
@@ -110,7 +110,11 @@
             //var a=binaryTreeBFS.GetMinimumDifference(treeNode);
             #endregion
 
-
+            graphGeneral.NumIslands([['1','1','0','0','0'],
+                                     ['1','1','0','0','0'],
+                                     ['0','0','1','0','0'],
+                                     ['0','0','0','1','1']
+                                   ]);
 
             Console.WriteLine("Hello, World!");
         }

@@ -80,5 +80,53 @@
 
             return count;
         }
+
+        public void Solve(char[][] board)
+        {
+            if (board == null || board.Length == 0) return;
+
+            int m = board.Length;
+            int n = board[0].Length;
+
+            // 1. Chegaradagi 'O' larni DFS bilan belgila
+            for (int i = 0; i < m; i++)
+            {
+                DFS(i, 0);       // chap ustun
+                DFS(i, n - 1);   // o‘ng ustun
+            }
+            for (int j = 0; j < n; j++)
+            {
+                DFS(0, j);       // yuqori qator
+                DFS(m - 1, j);   // pastki qator
+            }
+
+            // 2. Boardni yangilash
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (board[i][j] == 'O')
+                    {
+                        board[i][j] = 'X'; // o‘rab olingan region
+                    }
+                    else if (board[i][j] == '#')
+                    {
+                        board[i][j] = 'O'; // chetga bog‘langan
+                    }
+                }
+            }
+
+            // DFS yordamchi
+            void DFS(int i, int j)
+            {
+                if (i < 0 || j < 0 || i >= m || j >= n || board[i][j] != 'O') return;
+
+                board[i][j] = '#'; // vaqtincha belgilash
+                DFS(i + 1, j);
+                DFS(i - 1, j);
+                DFS(i, j + 1);
+                DFS(i, j - 1);
+            }
+        }
     }
 }

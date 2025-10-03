@@ -128,5 +128,53 @@
                 DFS(i, j - 1);
             }
         }
+
+        private Dictionary<NodeList, NodeList> visited = new Dictionary<NodeList, NodeList>();
+
+        public NodeList CloneGraph(NodeList node)
+        {
+            if (node == null) return null;
+
+            // Agar oldin klon qilinsa, qaytar
+            if (visited.ContainsKey(node))
+            {
+                return visited[node];
+            }
+
+            // Yangi node yaratamiz (neighbors bo‘sh holat)
+            NodeList cloneNode = new NodeList(node.val, new List<NodeList>());
+            visited[node] = cloneNode;
+
+            // Har bir qo‘shnini klon qilamiz
+            foreach (var neighbor in node.neighbors)
+            {
+                cloneNode.neighbors.Add(CloneGraph(neighbor));
+            }
+
+            return cloneNode;
+        }
+    }
+    public class NodeList
+    {
+        public int val;
+        public IList<NodeList> neighbors;
+
+        public NodeList()
+        {
+            val = 0;
+            neighbors = new List<NodeList>();
+        }
+
+        public NodeList(int _val)
+        {
+            val = _val;
+            neighbors = new List<NodeList>();
+        }
+
+        public NodeList(int _val, List<NodeList> _neighbors)
+        {
+            val = _val;
+            neighbors = _neighbors;
+        }
     }
 }

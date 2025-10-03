@@ -10,7 +10,10 @@
             Intervals interval = new Intervals();
             Stack stack = new Stack();
             LinkedList linked= new LinkedList();
+            BinaryTreeGeneral binaryTreeGeneral = new BinaryTreeGeneral();
+            BinarySearchTree binaryTreeBFS = new BinarySearchTree();
 
+            #region TestPart
             //matrix.IsValidSudoku(
             //    [
             //     ['5', '3', '.', '.', '7', '.', '.', '.', '.'],
@@ -44,7 +47,6 @@
             //linked.HasCycle(head);
             //linked.Partition(head,3);
 
-            BinaryTreeGeneral binaryTreeGeneral = new BinaryTreeGeneral();
 
             //TreeNode root = new TreeNode(3,
             //    new TreeNode(9),
@@ -100,13 +102,16 @@
             //root.right.right = new TreeNode(7);
             //int a = binaryTreeGeneral.MaxPathSum(root);
 
-            TreeNode treeNode = new TreeNode(4);
-            treeNode.right=new TreeNode(6);
-            treeNode.left=new TreeNode(2);
-            treeNode.left.right=new TreeNode(3);
-            treeNode.left.left=new TreeNode(1);
-            BinarySearchTree binaryTreeBFS = new BinarySearchTree();
-            var a=binaryTreeBFS.GetMinimumDifference(treeNode);
+            //TreeNode treeNode = new TreeNode(4);
+            //treeNode.right=new TreeNode(6);
+            //treeNode.left=new TreeNode(2);
+            //treeNode.left.right=new TreeNode(3);
+            //treeNode.left.left=new TreeNode(1);
+            //var a=binaryTreeBFS.GetMinimumDifference(treeNode);
+            #endregion
+
+
+
             Console.WriteLine("Hello, World!");
         }
         

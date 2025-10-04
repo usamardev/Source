@@ -108,7 +108,6 @@
             //treeNode.left.right=new TreeNode(3);
             //treeNode.left.left=new TreeNode(1);
             //var a=binaryTreeBFS.GetMinimumDifference(treeNode);
-            #endregion
 
             //graphGeneral.NumIslands([['1','1','0','0','0'],
             //                         ['1','1','0','0','0'],
@@ -116,7 +115,12 @@
             //                         ['0','0','0','1','1']
             //                       ]);
 
-            graphGeneral.Solve([['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]);
+            //graphGeneral.Solve([['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]);
+
+            #endregion
+            MathALG mathALG = new MathALG();
+            mathALG.TrailingZeroes(7);
+
 
             Console.WriteLine("Hello, World!");
         }

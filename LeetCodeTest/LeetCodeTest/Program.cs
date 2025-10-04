@@ -119,7 +119,7 @@
 
             #endregion
             MathALG mathALG = new MathALG();
-            mathALG.TrailingZeroes(7);
+            mathALG.MyPow(2,10);
 
 
             Console.WriteLine("Hello, World!");

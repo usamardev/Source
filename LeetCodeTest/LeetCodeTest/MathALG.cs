@@ -92,6 +92,8 @@ namespace LeetCodeTest
             return result;
         }
 
+
+
         //public int MaxPoints(int[][] points)
         //{
 

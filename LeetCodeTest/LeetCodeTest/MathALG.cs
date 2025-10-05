@@ -91,5 +91,15 @@ namespace LeetCodeTest
 
             return result;
         }
+
+        //public int MaxPoints(int[][] points)
+        //{
+
+        //}
+
+        //List<int[]> GetListReady(int[] ints)
+        //{
+
+        //}
     }
 }

@@ -119,8 +119,10 @@
 
             #endregion
             MathALG mathALG = new MathALG();
-            mathALG.MyPow(2,10);
+            //mathALG.MyPow(2,10);
 
+            _1DDP _1DDP = new _1DDP();
+            _1DDP.Rob([1, 2, 3, 1]);
 
             Console.WriteLine("Hello, World!");
         }

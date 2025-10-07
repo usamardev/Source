@@ -120,4 +120,40 @@
         }
     }
 
+    public class testWordDic
+    {
+        HashSet<string> words;
+        public testWordDic()
+        {
+            words = new HashSet<string>();
+        }
+
+        public void Add(string word)
+        {
+            words.Add(word);
+        }
+
+        public bool Search(string word)
+        {
+            bool result = false;
+            foreach(var child in words)
+            {
+                if(child.Length != word.Length) continue;
+                int index = word.Length-1;
+                while(index>=0)
+                {
+                    if (word[index]=='.') 
+                        { index--; continue; }
+                    if (child[index]==word[index]) { index--; continue; }
+                    else { index = 1; break; }
+                }
+                if(index==0)
+                    result = true;
+            }
+            return result;
+        }
+
+        
+    }
+
 }

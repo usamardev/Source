@@ -214,6 +214,46 @@
         }
 
 
+        //buni yaxshi tushunmadim 
+        public bool CanFinish(int numCourses, int[][] prerequisites)
+        {
+            // Grafni yaratamiz
+            List<int>[] graph = new List<int>[numCourses];
+            for (int i = 0; i < numCourses; i++)
+                graph[i] = new List<int>();
+
+            foreach (var pre in prerequisites)
+                graph[pre[1]].Add(pre[0]);
+
+            // 0 - tashrif buyurilmagan
+            // 1 - hozir DFS ichida (visiting)
+            // 2 - butunlay tekshirilgan (visited)
+            int[] visited = new int[numCourses];
+
+            for (int i = 0; i < numCourses; i++)
+                if (!Dfs(i, graph, visited))
+                    return false;
+
+            return true;
+        }
+
+        private bool Dfs(int course, List<int>[] graph, int[] visited)
+        {
+            if (visited[course] == 1) // tsikl topildi
+                return false;
+            if (visited[course] == 2) // oldin tekshirilgan
+                return true;
+
+            visited[course] = 1; // "visiting" deb belgilaymiz
+
+            foreach (var next in graph[course])
+                if (!Dfs(next, graph, visited))
+                    return false;
+
+            visited[course] = 2; // "visited" holatiga o‘tadi
+            return true;
+        }
+
     }
     public class NodeList
     {

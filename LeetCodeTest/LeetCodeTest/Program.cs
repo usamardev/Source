@@ -117,12 +117,15 @@
 
             //graphGeneral.Solve([['X', 'X', 'X', 'X'], ['X', 'O', 'O', 'X'], ['X', 'X', 'O', 'X'], ['X', 'O', 'X', 'X']]);
 
-            #endregion
             MathALG mathALG = new MathALG();
             //mathALG.MyPow(2,10);
 
-            _1DDP _1DDP = new _1DDP();
-            _1DDP.LengthOfLIS_BNSearch([10, 9, 2, 5, 3, 7, 101, 18]);
+            //_1DDP _1DDP = new _1DDP();
+            //_1DDP.LengthOfLIS_BNSearch([10, 9, 2, 5, 3, 7, 101, 18]);
+            #endregion
+
+
+            graphGeneral.CanFinish(2, [[1, 0]]);
 
             Console.WriteLine("Hello, World!");
         }

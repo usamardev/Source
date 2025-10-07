@@ -125,9 +125,10 @@
             //graphGeneral.CanFinish(2, [[1, 0]]);
             #endregion
 
-            Trie trie = new Trie();
-            trie.Insert("apple");
-            trie.Search("app");
+            WordDictionary trie = new WordDictionary();
+            trie.AddWord("apple");
+            trie.AddWord("hpsle");
+            trie.Search(".ps.e");
             trie.Search("apple");
 
             Console.WriteLine("Hello, World!");

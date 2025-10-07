@@ -58,4 +58,66 @@
         }
 
     }
+
+    public class WordDictionary
+    {
+        private class TrieNode
+        {
+            public TrieNode[] children = new TrieNode[26];
+            public bool isEndOfWord = false;
+        }
+
+        private TrieNode root;
+
+        public WordDictionary()
+        {
+            root = new TrieNode();
+        }
+
+        // So‘zni qo‘shish
+        public void AddWord(string word)
+        {
+            TrieNode node = root;
+            foreach (char c in word)
+            {
+                int index = c - 'a';
+                if (node.children[index] == null)
+                    node.children[index] = new TrieNode();
+                node = node.children[index];
+            }
+            node.isEndOfWord = true;
+        }
+
+        // So‘zni qidirish ('.' ni ham hisobga oladi)
+        public bool Search(string word)
+        {
+            return Dfs(word, 0, root);
+        }
+
+        private bool Dfs(string word, int index, TrieNode node)
+        {
+            if (index == word.Length)
+                return node.isEndOfWord;
+
+            char c = word[index];
+            if (c == '.')
+            {
+                // '.' — barcha farzandlarni tekshiramiz
+                foreach (var child in node.children)
+                {
+                    if (child != null && Dfs(word, index + 1, child))
+                        return true;
+                }
+                return false;
+            }
+            else
+            {
+                int idx = c - 'a';
+                if (node.children[idx] == null)
+                    return false;
+                return Dfs(word, index + 1, node.children[idx]);
+            }
+        }
+    }
+
 }

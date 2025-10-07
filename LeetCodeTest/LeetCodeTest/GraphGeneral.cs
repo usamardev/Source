@@ -253,6 +253,42 @@
             visited[course] = 2; // "visited" holatiga o‘tadi
             return true;
         }
+        //^^^^^
+        public bool CanFinishBFS(int numCourses, int[][] prerequisites)
+        {
+            List<int>[] graph = new List<int>[numCourses];
+            int[] indegree = new int[numCourses];
+
+            for (int i = 0; i < numCourses; i++)
+                graph[i] = new List<int>();
+
+            foreach (var pre in prerequisites)
+            {
+                graph[pre[1]].Add(pre[0]);
+                indegree[pre[0]]++;
+            }
+
+            Queue<int> queue = new Queue<int>();
+            for (int i = 0; i < numCourses; i++)
+                if (indegree[i] == 0)
+                    queue.Enqueue(i);
+
+            int count = 0;
+            while (queue.Count > 0)
+            {
+                int curr = queue.Dequeue();
+                count++;
+                foreach (var next in graph[curr])
+                {
+                    indegree[next]--;
+                    if (indegree[next] == 0)
+                        queue.Enqueue(next);
+                }
+            }
+
+            return count == numCourses;
+        }
+
 
     }
     public class NodeList

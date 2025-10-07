@@ -122,10 +122,13 @@
 
             //_1DDP _1DDP = new _1DDP();
             //_1DDP.LengthOfLIS_BNSearch([10, 9, 2, 5, 3, 7, 101, 18]);
+            //graphGeneral.CanFinish(2, [[1, 0]]);
             #endregion
 
-
-            graphGeneral.CanFinish(2, [[1, 0]]);
+            Trie trie = new Trie();
+            trie.Insert("apple");
+            trie.Search("app");
+            trie.Search("apple");
 
             Console.WriteLine("Hello, World!");
         }

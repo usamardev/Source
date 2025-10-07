@@ -121,7 +121,6 @@
                 else
                     tails[left] = num;
             }
-
             return tails.Count;
         }
     }

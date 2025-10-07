@@ -122,7 +122,7 @@
             //mathALG.MyPow(2,10);
 
             _1DDP _1DDP = new _1DDP();
-            _1DDP.LengthOfLIS_me([10, 9, 2, 5, 3, 7, 101, 18]);
+            _1DDP.LengthOfLIS_BNSearch([10, 9, 2, 5, 3, 7, 101, 18]);
 
             Console.WriteLine("Hello, World!");
         }

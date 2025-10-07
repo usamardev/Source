@@ -124,26 +124,5 @@
 
             return tails.Count;
         }
-        public int LengthOfLIS_me(int[] nums)
-        {
-            int n = nums.Length;
-            if (n == 0) return 0;
-
-            int max = int.MinValue;
-            int count = 0;
-            for (int i = 0; i < n; i++)
-            {
-                int j = i;
-                while (j<n)
-                {
-                    if(nums[i] <= nums[j])
-                        count++;
-                    j++;
-                }
-                max = Math.Max(max, count);
-                count = 0;
-            }
-            return max;
-        }
     }
 }

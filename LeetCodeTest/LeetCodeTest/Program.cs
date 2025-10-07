@@ -125,7 +125,7 @@
             //graphGeneral.CanFinish(2, [[1, 0]]);
             #endregion
 
-            WordDictionary trie = new WordDictionary();
+            testWordDic trie = new testWordDic();
             trie.AddWord("apple");
             trie.AddWord("hpsle");
             trie.Search(".ps.e");

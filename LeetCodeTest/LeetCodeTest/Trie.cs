@@ -128,7 +128,7 @@
             words = new HashSet<string>();
         }
 
-        public void Add(string word)
+        public void AddWord(string word)
         {
             words.Add(word);
         }
@@ -147,7 +147,7 @@
                     if (child[index]==word[index]) { index--; continue; }
                     else { index = 1; break; }
                 }
-                if(index==0)
+                if(index==-1)
                     result = true;
             }
             return result;

@@ -154,6 +154,65 @@
             return cloneNode;
         }
 
+        public double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries)
+        {
+            // 1️⃣ Grafni quramiz
+            var graph = new Dictionary<string, Dictionary<string, double>>();
+            for (int i = 0; i < equations.Count; i++)
+            {
+                string a = equations[i][0], b = equations[i][1];
+                double val = values[i];
+
+                if (!graph.ContainsKey(a))
+                    graph[a] = new Dictionary<string, double>();
+                if (!graph.ContainsKey(b))
+                    graph[b] = new Dictionary<string, double>();
+
+                graph[a][b] = val;
+                graph[b][a] = 1.0 / val;
+            }
+
+            // 2️⃣ Har bir query uchun DFS
+            double[] result = new double[queries.Count];
+            for (int i = 0; i < queries.Count; i++)
+            {
+                string start = queries[i][0];
+                string end = queries[i][1];
+                if (!graph.ContainsKey(start) || !graph.ContainsKey(end))
+                {
+                    result[i] = -1.0;
+                }
+                else if (start == end)
+                {
+                    result[i] = 1.0;
+                }
+                else
+                {
+                    var visited = new HashSet<string>();
+                    result[i] = Dfs(graph, start, end, 1.0, visited);
+                }
+            }
+
+            return result;
+        }
+
+        private double Dfs(Dictionary<string, Dictionary<string, double>> graph, string curr, string target, double acc, HashSet<string> visited)
+        {
+            if (curr == target) return acc;
+            visited.Add(curr);
+
+            foreach (var neighbor in graph[curr])
+            {
+                if (!visited.Contains(neighbor.Key))
+                {
+                    double res = Dfs(graph, neighbor.Key, target, acc * neighbor.Value, visited);
+                    if (res != -1.0) return res;
+                }
+            }
+
+            return -1.0;
+        }
+
 
     }
     public class NodeList

@@ -80,6 +80,53 @@
             return dp[amount] > amount ? -1 : dp[amount];
         }
 
+        public int LengthOfLIS(int[] nums)
+        {
+            int n = nums.Length;
+            if (n == 0) return 0;
 
+            int[] dp = new int[n];
+            Array.Fill(dp, 1);
+
+            for (int i = 1; i < n; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    if (nums[j] < nums[i])
+                    {
+                        dp[i] = Math.Max(dp[i], dp[j] + 1);
+                    }
+                }
+            }
+
+            return dp.Max();
+        }
+
+        public int LengthOfLIS_BNSearch(int[] nums)
+        {
+            List<int> tails = new List<int>();
+
+            foreach (int num in nums)
+            {
+                int left = 0, right = tails.Count;
+                while (left < right)
+                {
+                    int mid = left + (right - left) / 2;
+                    if (tails[mid] < num) left = mid + 1;
+                    else right = mid;
+                }
+
+                if (left == tails.Count)
+                    tails.Add(num);
+                else
+                    tails[left] = num;
+            }
+
+            return tails.Count;
+        }
+        public int LengthOfLIS_me(int[] nums)
+        {
+
+        }
     }
 }

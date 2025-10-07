@@ -122,7 +122,7 @@
             //mathALG.MyPow(2,10);
 
             _1DDP _1DDP = new _1DDP();
-            _1DDP.Rob([1, 2, 3, 1]);
+            _1DDP.CoinChange([1, 2, 5],11);
 
             Console.WriteLine("Hello, World!");
         }

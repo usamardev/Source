@@ -137,9 +137,9 @@
             //    ['i', 'f', 'l', 'v']], ["oath", "pea", "eat", "rain"]);
             #endregion
 
-            BinarySearch binarySearch = new BinarySearch();
+            MultidimensionalDP binarySearch = new MultidimensionalDP();
 
-            binarySearch.FindMedianSortedArrays([1, 2], [3, 4]);
+            binarySearch.UniquePathsWithObstaclesOPTWay([[0, 0, 0], [0, 1, 0], [0, 0, 0]]);
 
 
             Console.WriteLine("Hello, World!");

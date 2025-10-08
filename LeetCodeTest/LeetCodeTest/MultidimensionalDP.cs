@@ -2,6 +2,7 @@
 {
     public class MultidimensionalDP
     {
+        //120. Triangle
         public int MinimumTotal(IList<IList<int>> triangle)
         {
             int min = 0;

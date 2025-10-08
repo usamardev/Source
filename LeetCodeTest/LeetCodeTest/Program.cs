@@ -123,13 +123,21 @@
             //_1DDP _1DDP = new _1DDP();
             //_1DDP.LengthOfLIS_BNSearch([10, 9, 2, 5, 3, 7, 101, 18]);
             //graphGeneral.CanFinish(2, [[1, 0]]);
+            //testWordDic trie = new testWordDic();
+            //trie.AddWord("apple");
+            //trie.AddWord("hpsle");
+            //trie.Search(".ps.e");
+            //trie.Search("apple");
             #endregion
 
-            testWordDic trie = new testWordDic();
-            trie.AddWord("apple");
-            trie.AddWord("hpsle");
-            trie.Search(".ps.e");
-            trie.Search("apple");
+            SolutionTrie trie = new SolutionTrie();
+
+            trie.FindWords([
+                ['o', 'a', 'a', 'n'],
+                ['e', 't', 'a', 'e'],
+                ['i', 'h', 'k', 'r'],
+                ['i', 'f', 'l', 'v']], ["oath", "pea", "eat", "rain"]);
+
 
             Console.WriteLine("Hello, World!");
         }

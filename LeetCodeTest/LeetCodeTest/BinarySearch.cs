@@ -35,5 +35,22 @@
             }
             return false;
         }
+
+        //162. Find Peak Element
+        public int FindPeakElement(int[] nums)
+        {
+            if (nums.Length == 0) return 0;
+            int result = 0;
+            int max = nums[0];
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (max < nums[i])
+                {
+                    max = nums[i];
+                    result = i;
+                }
+            }
+            return result;
+        }
     }
 }

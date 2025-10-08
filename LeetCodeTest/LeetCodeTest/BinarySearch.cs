@@ -52,5 +52,18 @@
             }
             return result;
         }
+
+        //33. Search in Rotated Sorted Array
+        public int Search(int[] nums, int target)
+        {
+            if(nums.Length == 0) return 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == target)
+                    return i;
+            }
+            return -1;
+        }
     }
 }

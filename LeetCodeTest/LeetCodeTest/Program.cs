@@ -128,15 +128,15 @@
             //trie.AddWord("hpsle");
             //trie.Search(".ps.e");
             //trie.Search("apple");
+            //SolutionTrie trie = new SolutionTrie();
+
+            //trie.FindWords([
+            //    ['o', 'a', 'a', 'n'],
+            //    ['e', 't', 'a', 'e'],
+            //    ['i', 'h', 'k', 'r'],
+            //    ['i', 'f', 'l', 'v']], ["oath", "pea", "eat", "rain"]);
             #endregion
 
-            SolutionTrie trie = new SolutionTrie();
-
-            trie.FindWords([
-                ['o', 'a', 'a', 'n'],
-                ['e', 't', 'a', 'e'],
-                ['i', 'h', 'k', 'r'],
-                ['i', 'f', 'l', 'v']], ["oath", "pea", "eat", "rain"]);
 
 
             Console.WriteLine("Hello, World!");

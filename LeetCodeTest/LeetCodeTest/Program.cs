@@ -137,6 +137,9 @@
             //    ['i', 'f', 'l', 'v']], ["oath", "pea", "eat", "rain"]);
             #endregion
 
+            BinarySearch binarySearch = new BinarySearch();
+
+            binarySearch.FindMedianSortedArrays([1, 2], [3, 4]);
 
 
             Console.WriteLine("Hello, World!");

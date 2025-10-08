@@ -120,5 +120,27 @@
             }
             return nums[l];
         }
+
+        //4. Median of Two Sorted Arrays
+        public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        {
+            List<int> result = new List<int>();
+            int m=nums1.Length;
+            int n=nums2.Length;
+
+            for (int i = 0; i < m; i++)
+            {
+                result.Add(nums1[i]);
+            }
+            for (int i = 0; i < n; i++)
+            {
+                result.Add(nums2[i]);
+            }
+            result.Sort();
+
+            double sum = ((m + n) % 2 == 0) ? (result[(n + m) / 2 - 1] + result[(n + m) / 2]) / 2.0 : result[(n + m) / 2];
+
+            return sum;
+        }
     }
 }

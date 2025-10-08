@@ -87,5 +87,18 @@
             }
             return result;
         }
+
+        //153. Find Minimum in Rotated Sorted Array
+        public int FindMin(int[] nums)
+        {
+            if (nums.Length == 0) return 0;
+            int min = nums[0];
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (min > nums[i])
+                    min = nums[i];
+            }
+            return min;
+        }
     }
 }

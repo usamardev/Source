@@ -135,12 +135,14 @@
             //    ['e', 't', 'a', 'e'],
             //    ['i', 'h', 'k', 'r'],
             //    ['i', 'f', 'l', 'v']], ["oath", "pea", "eat", "rain"]);
+            //MultidimensionalDP binarySearch = new MultidimensionalDP();
+
+            //binarySearch.UniquePathsWithObstaclesOPTWay([[0, 0, 0], [0, 1, 0], [0, 0, 0]]);
             #endregion
 
-            MultidimensionalDP binarySearch = new MultidimensionalDP();
+            Backtracking backtracking = new Backtracking();
 
-            binarySearch.UniquePathsWithObstaclesOPTWay([[0, 0, 0], [0, 1, 0], [0, 0, 0]]);
-
+            backtracking.LetterCombinations("23");
 
             Console.WriteLine("Hello, World!");
         }

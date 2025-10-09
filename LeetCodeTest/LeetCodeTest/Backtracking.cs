@@ -85,5 +85,26 @@
                 current.RemoveAt(current.Count - 1);     // orqaga qaytamiz (backtrack)
             }
         }
+
+        public IList<IList<int>> CombineIntervalVertion(int n, int k)
+        {
+            var result = new List<IList<int>>();
+            int[] comb = Enumerable.Range(1, k).ToArray();
+
+            while (true)
+            {
+                result.Add(comb.ToArray());
+
+                int i = k - 1;
+                while (i >= 0 && comb[i] == n - k + i + 1) i--;
+                if (i < 0) break;
+
+                comb[i]++;
+                for (int j = i + 1; j < k; j++)
+                    comb[j] = comb[j - 1] + 1;
+            }
+
+            return result;
+        }
     }
 }

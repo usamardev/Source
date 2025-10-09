@@ -61,6 +61,29 @@
             return result;
         }
 
+        public IList<IList<int>> Combine(int n, int k)
+        {
+            var result = new List<IList<int>>();
+            BacktrackCombine(1, n, k, new List<int>(), result);
+            return result;
+        }
 
+        private void BacktrackCombine(int start, int n, int k, List<int> current, List<IList<int>> result)
+        {
+            // ✅ 1. To‘liq kombinatsiya tayyor bo‘lsa
+            if (current.Count == k)
+            {
+                result.Add(new List<int>(current));
+                return;
+            }
+
+            // ✅ 2. Navbatdagi sonlarni tanlash
+            for (int i = start; i <= n; i++)
+            {
+                current.Add(i);                 // sonni tanlaymiz
+                BacktrackCombine(i + 1, n, k, current, result); // keyingi bosqich
+                current.RemoveAt(current.Count - 1);     // orqaga qaytamiz (backtrack)
+            }
+        }
     }
 }

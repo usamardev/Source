@@ -142,7 +142,7 @@
 
             Backtracking backtracking = new Backtracking();
 
-            backtracking.Combine(3,3);
+            backtracking.Permute([1, 2, 3]);
 
             Console.WriteLine("Hello, World!");
         }

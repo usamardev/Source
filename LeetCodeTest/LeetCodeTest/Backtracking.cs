@@ -107,6 +107,27 @@
             return result;
         }
 
+        public IList<IList<int>> Permute(int[] nums)
+        {
+            var result = new List<IList<int>>();
+            Generate(nums, 0, result);
+            return result;
+        }
 
+        private void Generate(int[] nums, int start, List<IList<int>> result)
+        {
+            if (start == nums.Length)
+            {
+                result.Add(nums.ToArray());
+                return;
+            }
+
+            for (int i = start; i < nums.Length; i++)
+            {
+                (nums[start], nums[i]) = (nums[i], nums[start]);  // swap
+                Generate(nums, start + 1, result);
+                (nums[start], nums[i]) = (nums[i], nums[start]);  // backtrack (undo swap)
+            }
+        }
     }
 }

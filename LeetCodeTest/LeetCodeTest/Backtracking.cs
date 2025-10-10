@@ -129,5 +129,28 @@
                 (nums[start], nums[i]) = (nums[i], nums[start]);  // backtrack (undo swap)
             }
         }
+
+        public IList<IList<int>> CombinationSum(int[] candidates, int target)
+        {
+            var result = new List<IList<int>>();
+
+            GenerateComSum(candidates,0, target,new List<int>(), result);
+
+            return result;
+        }
+        private void GenerateComSum(int[] candidates,int start, int target, List<int> current, List<IList<int>> result)
+        {
+            for (int i = start; i < candidates.Length; i++)
+            {
+                current.Add(candidates[i]);       
+                if (current.Sum() == target)
+                    result.Add(new List<int>(current));
+                if (current.Sum() < target)
+                {
+                    GenerateComSum(candidates, i, target, current, result);
+                }
+                current.RemoveAt(current.Count - 1);   
+            }
+        }
     }
 }

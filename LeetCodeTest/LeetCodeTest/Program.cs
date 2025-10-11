@@ -142,7 +142,7 @@
 
             Backtracking backtracking = new Backtracking();
 
-            backtracking.CombinationSum([2, 3, 6, 7],7);
+            backtracking.GenerateParenthesis(3);
 
             Console.WriteLine("Hello, World!");
         }

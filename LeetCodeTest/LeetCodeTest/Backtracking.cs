@@ -152,5 +152,30 @@
                 current.RemoveAt(current.Count - 1);   
             }
         }
+
+        public IList<string> GenerateParenthesis(int n)
+        {
+            var result = new List<string>();
+            BacktrackParent(result, "", 0, 0, n);
+            return result;
+        }
+
+        private void BacktrackParent(List<string> result, string current, int open, int close, int max)
+        {
+            // ✅ 1. To‘liq qavslar tayyor
+            if (current.Length == max * 2)
+            {
+                result.Add(current);
+                return;
+            }
+
+            // ✅ 2. Agar hali ochish mumkin bo‘lsa
+            if (open < max)
+                BacktrackParent(result, current + "(", open + 1, close, max);
+
+            // ✅ 3. Agar yopish mumkin bo‘lsa
+            if (close < open)
+                BacktrackParent(result, current + ")", open, close + 1, max);
+        }
     }
 }

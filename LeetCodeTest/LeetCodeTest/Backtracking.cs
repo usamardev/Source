@@ -168,7 +168,6 @@
                 result.Add(current);
                 return;
             }
-
             // ✅ 2. Agar hali ochish mumkin bo‘lsa
             if (open < max)
                 BacktrackParent(result, current + "(", open + 1, close, max);

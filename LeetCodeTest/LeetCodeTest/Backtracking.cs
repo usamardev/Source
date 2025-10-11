@@ -220,25 +220,33 @@
 
             return found;
         }
-
+        private int result = 0;
         public int TotalNQueens(int n)
         {
             if (n == 1) return 1;
 
             int[] ints=new int[n];
 
-            int result = 0;
-            BacktrackTotalNQueens(ints, 0, new HashSet<string>(), n, result);
+            BacktrackTotalNQueens(ints, 0, new HashSet<string>(), n);
             return result;
         }
 
-        private void BacktrackTotalNQueens(int[] nums, int row, HashSet<string> xZone, int n, int result)
+        private void BacktrackTotalNQueens(int[] nums, int row, HashSet<string> xZone, int n)
         {
+            if(row==n) return;
+
             for (int i = 0; i < n; i++)
             {
                 if (xZone.Contains((row,i).ToString())) continue;
-                CreateXZones(xZone, row,i,n);
-
+                if (row == n - 1)
+                    result++;
+                else
+                {
+                    var save = new HashSet<string>(xZone);
+                    CreateXZones(xZone, row, i, n);
+                    BacktrackTotalNQueens(nums, row + 1, xZone, n);
+                    xZone = new HashSet<string>(save);
+                }
             }
         }
 
@@ -256,7 +264,31 @@
                     if (i - j == row-col) 
                         num.Add((i,j).ToString());
                 }
+                for (int j = 0; j < n; j++)
+                {
+                    if (j + i == col + row)
+                        num.Add((i, j).ToString());
+                }
             }
+        }
+
+        public int TotalNQueensFaster(int n)
+        {
+            int count = 0;
+            int a = (1 << n) - 1;
+            void dfs(int cols, int xd, int yd)
+            {
+                if (cols == a) { count++; return; }
+                int b = a & ~(cols | xd | yd);
+                while (b != 0)
+                {
+                    int bit = b & -b;
+                    b -= bit;
+                    dfs(cols | bit, (xd | bit) << 1, (yd | bit) >> 1);
+                }
+            }
+            dfs(0, 0, 0);
+            return count;
         }
     }
 }

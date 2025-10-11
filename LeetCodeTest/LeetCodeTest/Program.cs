@@ -147,6 +147,8 @@
                 ['S', 'F', 'C', 'S'], 
                 ['A', 'D', 'E', 'E']], "ABCCED");
 
+            backtracking.TotalNQueens(6);
+
 
             Console.WriteLine("Hello, World!");
         }

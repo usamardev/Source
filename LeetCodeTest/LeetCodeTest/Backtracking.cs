@@ -220,5 +220,43 @@
 
             return found;
         }
+
+        public int TotalNQueens(int n)
+        {
+            if (n == 1) return 1;
+
+            int[] ints=new int[n];
+
+            int result = 0;
+            BacktrackTotalNQueens(ints, 0, new HashSet<string>(), n, result);
+            return result;
+        }
+
+        private void BacktrackTotalNQueens(int[] nums, int row, HashSet<string> xZone, int n, int result)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                if (xZone.Contains((row,i).ToString())) continue;
+                CreateXZones(xZone, row,i,n);
+
+            }
+        }
+
+        private void CreateXZones(HashSet<string> num, int row, int col,int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                num.Add((row,i).ToString());
+                num.Add((i,col).ToString());
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i - j == row-col) 
+                        num.Add((i,j).ToString());
+                }
+            }
+        }
     }
 }

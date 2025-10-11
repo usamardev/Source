@@ -142,7 +142,11 @@
 
             Backtracking backtracking = new Backtracking();
 
-            backtracking.GenerateParenthesis(3);
+            backtracking.Exist([
+                ['A', 'B', 'C', 'E'], 
+                ['S', 'F', 'C', 'S'], 
+                ['A', 'D', 'E', 'E']], "ABCCED");
+
 
             Console.WriteLine("Hello, World!");
         }

@@ -176,5 +176,49 @@
             if (close < open)
                 BacktrackParent(result, current + ")", open, close + 1, max);
         }
+
+        public bool Exist(char[][] board, string word)
+        {
+            int rows = board.Length;
+            int cols = board[0].Length;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (Dfs(board, i, j, word, 0))
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool Dfs(char[][] board, int i, int j, string word, int index)
+        {
+            // 1️⃣ — So‘z to‘liq topilgan bo‘lsa
+            if (index == word.Length)
+                return true;
+
+            // 2️⃣ — Tashqariga chiqib ketgan yoki mos kelmasa
+            if (i < 0 || j < 0 || i >= board.Length || j >= board[0].Length || board[i][j] != word[index])
+                return false;
+
+            // 3️⃣ — Hozirgi katakni vaqtincha “ishlatilgan” deb belgilaymiz
+            char temp = board[i][j];
+            board[i][j] = '#';
+
+            // 4️⃣ — To‘rt yo‘nalishda davom etamiz
+            bool found =
+                Dfs(board, i + 1, j, word, index + 1) ||
+                Dfs(board, i - 1, j, word, index + 1) ||
+                Dfs(board, i, j + 1, word, index + 1) ||
+                Dfs(board, i, j - 1, word, index + 1);
+
+            // 5️⃣ — Orqaga qaytishda katakni tiklaymiz
+            board[i][j] = temp;
+
+            return found;
+        }
     }
 }

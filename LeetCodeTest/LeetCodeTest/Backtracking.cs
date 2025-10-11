@@ -275,16 +275,16 @@
         public int TotalNQueensFaster(int n)
         {
             int count = 0;
-            int a = (1 << n) - 1;
-            void dfs(int cols, int xd, int yd)
+            int mask = (1 << n) - 1;
+            void dfs(int cols, int diags, int antiDiags)
             {
-                if (cols == a) { count++; return; }
-                int b = a & ~(cols | xd | yd);
-                while (b != 0)
+                if (cols == mask) { count++; return; }
+                int available = mask & ~(cols | diags | antiDiags);
+                while (available != 0)
                 {
-                    int bit = b & -b;
-                    b -= bit;
-                    dfs(cols | bit, (xd | bit) << 1, (yd | bit) >> 1);
+                    int bit = available & -available;
+                    available -= bit;
+                    dfs(cols | bit, (diags | bit) << 1, (antiDiags | bit) >> 1);
                 }
             }
             dfs(0, 0, 0);

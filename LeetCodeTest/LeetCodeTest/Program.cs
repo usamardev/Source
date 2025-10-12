@@ -146,30 +146,33 @@
             //    ['A', 'D', 'E', 'E']], "ABCCED");
 
             //backtracking.TotalNQueensFaster(4);
+            //ListNode l1 = new ListNode(1);
+            //l1.next = new ListNode(4);
+            //l1.next.next = new ListNode(5);
+
+            //// 1 → 3 → 4
+            //ListNode l2 = new ListNode(1);
+            //l2.next = new ListNode(3);
+            //l2.next.next = new ListNode(4);
+
+            //// 2 → 6
+            //ListNode l3 = new ListNode(2);
+            //l3.next = new ListNode(6);
+
+            //// ListNode[] massiv shaklida saqlaymiz
+            //ListNode[] lists = new ListNode[] { l1, l2, l3 };
+
+            //DivideConquer conquer = new DivideConquer();
+
+            ////conquer.SortedArrayToBST([-10, -3, 0, 5, 9]);
+            ////conquer.SortList(head);
+
+            //conquer.MergeKLists(lists);
             #endregion
 
-            ListNode l1 = new ListNode(1);
-            l1.next = new ListNode(4);
-            l1.next.next = new ListNode(5);
+            Heap heap = new Heap();
 
-            // 1 → 3 → 4
-            ListNode l2 = new ListNode(1);
-            l2.next = new ListNode(3);
-            l2.next.next = new ListNode(4);
-
-            // 2 → 6
-            ListNode l3 = new ListNode(2);
-            l3.next = new ListNode(6);
-
-            // ListNode[] massiv shaklida saqlaymiz
-            ListNode[] lists = new ListNode[] { l1, l2, l3 };
-
-            DivideConquer conquer = new DivideConquer();
-
-            //conquer.SortedArrayToBST([-10, -3, 0, 5, 9]);
-            //conquer.SortList(head);
-
-            conquer.MergeKLists(lists);
+            heap.FindKthLargest([3, 2, 1, 5, 6, 4], 2);
 
             Console.WriteLine("Hello, World!");
         }

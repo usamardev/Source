@@ -68,5 +68,30 @@
             
             return head.next;
         }
+
+        public ListNode MergeKLists(ListNode[] lists)
+        {
+            ListNode result = new ListNode(0);
+            ListNode listNode = result;
+            List<int> list = new List<int>();
+
+            if (lists == null) return result;   
+
+            for (int i = 0;i<lists.Length;i++)
+            {
+                while (lists[i] != null)
+                {
+                    list.Add(lists[i].val);
+                    lists[i] = lists[i].next;
+                }
+            }
+            list.Sort();
+            for (int i = 0; i<list.Count;i++)
+            {
+                listNode.next = new ListNode(list[i]);
+                listNode = listNode.next;
+            }
+            return result.next;
+        }
     }
 }

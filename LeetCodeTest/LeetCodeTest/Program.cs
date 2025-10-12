@@ -31,10 +31,10 @@
 
             //stack.Calculate("1-(     -2)");  
 
-            ListNode head = new ListNode(4);
-            head.next = new ListNode(2);
-            head.next.next = new ListNode(1);
-            head.next.next.next = new ListNode(3);
+            //ListNode head = new ListNode(4);
+            //head.next = new ListNode(2);
+            //head.next.next = new ListNode(1);
+            //head.next.next.next = new ListNode(3);
             //head.next.next.next.next = new ListNode(2);
             //head.next.next.next.next.next = new ListNode(5);
 
@@ -148,12 +148,28 @@
             //backtracking.TotalNQueensFaster(4);
             #endregion
 
+            ListNode l1 = new ListNode(1);
+            l1.next = new ListNode(4);
+            l1.next.next = new ListNode(5);
+
+            // 1 → 3 → 4
+            ListNode l2 = new ListNode(1);
+            l2.next = new ListNode(3);
+            l2.next.next = new ListNode(4);
+
+            // 2 → 6
+            ListNode l3 = new ListNode(2);
+            l3.next = new ListNode(6);
+
+            // ListNode[] massiv shaklida saqlaymiz
+            ListNode[] lists = new ListNode[] { l1, l2, l3 };
 
             DivideConquer conquer = new DivideConquer();
 
             //conquer.SortedArrayToBST([-10, -3, 0, 5, 9]);
-            conquer.SortList(head);
+            //conquer.SortList(head);
 
+            conquer.MergeKLists(lists);
 
             Console.WriteLine("Hello, World!");
         }

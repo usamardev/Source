@@ -31,10 +31,10 @@
 
             //stack.Calculate("1-(     -2)");  
 
-            //ListNode head = new ListNode(1);
-            //head.next = new ListNode(4);
-            //head.next.next = new ListNode(3);
-            //head.next.next.next = new ListNode(2);
+            ListNode head = new ListNode(4);
+            head.next = new ListNode(2);
+            head.next.next = new ListNode(1);
+            head.next.next.next = new ListNode(3);
             //head.next.next.next.next = new ListNode(2);
             //head.next.next.next.next.next = new ListNode(5);
 
@@ -138,16 +138,21 @@
             //MultidimensionalDP binarySearch = new MultidimensionalDP();
 
             //binarySearch.UniquePathsWithObstaclesOPTWay([[0, 0, 0], [0, 1, 0], [0, 0, 0]]);
+            //Backtracking backtracking = new Backtracking();
+
+            //backtracking.Exist([
+            //    ['A', 'B', 'C', 'E'], 
+            //    ['S', 'F', 'C', 'S'], 
+            //    ['A', 'D', 'E', 'E']], "ABCCED");
+
+            //backtracking.TotalNQueensFaster(4);
             #endregion
 
-            Backtracking backtracking = new Backtracking();
 
-            backtracking.Exist([
-                ['A', 'B', 'C', 'E'], 
-                ['S', 'F', 'C', 'S'], 
-                ['A', 'D', 'E', 'E']], "ABCCED");
+            DivideConquer conquer = new DivideConquer();
 
-            backtracking.TotalNQueensFaster(4);
+            //conquer.SortedArrayToBST([-10, -3, 0, 5, 9]);
+            conquer.SortList(head);
 
 
             Console.WriteLine("Hello, World!");

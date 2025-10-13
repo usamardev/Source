@@ -99,5 +99,63 @@
 
             return w;
         }
+
+
+public class MedianFinder
+    {
+        // right = min-heap (odatdagi)
+        private PriorityQueue<int, int> right;
+        // left = max-heap implemented by storing negative priority
+        private PriorityQueue<int, int> left;
+
+        public MedianFinder()
+        {
+            right = new PriorityQueue<int, int>();
+            left = new PriorityQueue<int, int>();
+        }
+
+        public void AddNum(int num)
+        {
+            // Agar left bo'sh yoki num kichik yoki teng leftning maksimumiga teng bo'lsa -> left ga qo'yamiz
+            if (left.Count == 0 || num <= left.Peek())
+            {
+                // max-heap so'rovini taqlid qilish uchun priority = -num
+                left.Enqueue(num, -num);
+            }
+            else
+            {
+                right.Enqueue(num, num);
+            }
+
+            // Balanslash: left hajmi right hajmidan 2 tadan ortiq bo'lmasligi kerak
+            if (left.Count > right.Count + 1)
+            {
+                int moved = left.Dequeue(); // element
+                                            // moved elementini right (min-heap) ga qo'shamiz: priority = moved
+                right.Enqueue(moved, moved);
+            }
+            else if (right.Count > left.Count)
+            {
+                int moved = right.Dequeue();
+                // moved elementini left (max-heap) ga qo'shamiz: priority = -moved
+                left.Enqueue(moved, -moved);
+            }
+        }
+
+        public double FindMedian()
+        {
+            if (left.Count == right.Count)
+            {
+                if (left.Count == 0) return 0.0; // hech narsa qo'shilmagan holat (ixtiyoriy)
+                return (left.Peek() + right.Peek()) / 2.0;
+            }
+            else
+            {
+                return left.Peek();
+            }
+        }
     }
+
+
+}
 }

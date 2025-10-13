@@ -170,20 +170,24 @@ namespace LeetCodeTest
             ////conquer.SortList(head);
 
             //conquer.MergeKLists(lists);
-            #endregion
-
-            Heap heap = new Heap();
+            //Heap heap = new Heap();
 
             //heap.FindKthLargest([3, 2, 1, 5, 6, 4], 2);
 
             //heap.FindMaximizedCapitalMine(3, 0, [1, 2, 3], [0, 1, 2]);
+            //var finder = new MedianFinder();
+            //finder.AddNum(1);
+            //finder.AddNum(2);
+            //Console.WriteLine(finder.FindMedian()); // 1.5
+            //finder.AddNum(3);
+            //Console.WriteLine(finder.FindMedian()); // 2
+            #endregion
 
-            var finder = new MedianFinder();
-            finder.AddNum(1);
-            finder.AddNum(2);
-            Console.WriteLine(finder.FindMedian()); // 1.5
-            finder.AddNum(3);
-            Console.WriteLine(finder.FindMedian()); // 2
+            BitManipulation bitManipulation = new BitManipulation();
+
+            bitManipulation.ReverseBitsInt(43261596);
+
+
 
             Console.WriteLine("Hello, World!");
         }

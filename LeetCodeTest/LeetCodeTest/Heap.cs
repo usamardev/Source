@@ -17,9 +17,6 @@
             return pq.Peek(); // heap ichidagi eng kichik — k-chi eng katta
         }
 
-        public IList<IList<int>> KSmallestPairs(int[] nums1, int[] nums2, int k)
-        {
-
-        }
+       
     }
 }

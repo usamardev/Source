@@ -42,5 +42,62 @@
 
             return result;
         }
+
+        public int FindMaximizedCapital(int k, int w, int[] profits, int[] capital)
+        {
+            int n = profits.Length;
+            var projects = new List<(int capital, int profit)>();
+
+            for (int i = 0; i < n; i++)
+                projects.Add((capital[i], profits[i]));
+
+            // 1️⃣ Loyiha ro‘yxatini capital bo‘yicha tartiblaymiz
+            projects.Sort((a, b) => a.capital.CompareTo(b.capital));
+
+            // 2️⃣ Profitlar uchun Max Heap
+            var maxHeap = new PriorityQueue<int, int>(Comparer<int>.Create((a, b) => b.CompareTo(a)));
+
+            int index = 0;
+            while (k-- > 0)
+            {
+                // Hozirgi kapital bilan boshlash mumkin bo‘lgan loyihalarni heapga qo‘shamiz
+                while (index < n && projects[index].capital <= w)
+                {
+                    maxHeap.Enqueue(projects[index].profit, projects[index].profit);
+                    index++;
+                }
+
+                // Agar hech qanday loyiha boshlay olmasak — tugadi
+                if (maxHeap.Count == 0)
+                    break;
+
+                // Eng foydali loyihani bajarish
+                w += maxHeap.Dequeue();
+            }
+
+            return w;
+        }
+
+        public int FindMaximizedCapitalMine(int k, int w, int[] profits, int[] capital)
+        {
+            int n = profits.Length;
+
+            var projects = new List<(int capital, int profit)>();
+
+            for (int i = 0; i < n; i++)
+                projects.Add((capital[i], profits[i]));
+
+            while(k-- > 0)
+            {
+                var list = projects.Where(m => m.capital <= w).ToList();
+                if (list.Count == 0) return 0;
+
+                w += list[list.Count - 1].profit;
+
+                list.RemoveAt(list.Count - 1);
+            }
+
+            return w;
+        }
     }
 }

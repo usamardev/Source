@@ -172,7 +172,9 @@
 
             Heap heap = new Heap();
 
-            heap.FindKthLargest([3, 2, 1, 5, 6, 4], 2);
+            //heap.FindKthLargest([3, 2, 1, 5, 6, 4], 2);
+
+            heap.FindMaximizedCapitalMine(3, 0, [1, 2, 3], [0, 1, 2]);
 
             Console.WriteLine("Hello, World!");
         }

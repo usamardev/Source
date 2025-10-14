@@ -57,6 +57,17 @@
 
             return ones;
         }
-    }
 
+        public int RangeBitwiseAnd(int left, int right)
+        {
+            int shift = 0;
+            while (left < right)
+            {
+                left >>= 1;   // o'ngga siljit
+                right >>= 1;  // o'ngga siljit
+                shift++;       // nechta bit yo‘qoldi — eslab qol
+            }
+            return left << shift; // umumiy prefiksni qayta joyiga siljit
+        }
+    }
 }

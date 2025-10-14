@@ -45,7 +45,18 @@
             foreach (int n in nums) res ^= n;
             return res;
         }
-        
+        public int SingleNumber2(int[] nums)
+        {
+            int ones = 0, twos = 0;
+
+            foreach (int num in nums)
+            {
+                ones = (ones ^ num) & ~twos;
+                twos = (twos ^ num) & ~ones;
+            }
+
+            return ones;
+        }
     }
 
 }

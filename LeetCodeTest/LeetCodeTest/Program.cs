@@ -186,7 +186,7 @@ namespace LeetCodeTest
 
             BitManipulation bitManipulation = new BitManipulation();
 
-            bitManipulation.SingleNumber([4, 1, 2, 1, 2]);
+            bitManipulation.SingleNumber2([2, 2, 3, 2]);
 
             Console.WriteLine("Hello, World!");
         }

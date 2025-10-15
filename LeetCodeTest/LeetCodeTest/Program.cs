@@ -189,7 +189,11 @@ namespace LeetCodeTest
 
             BitManipulation bitManipulation = new BitManipulation();
 
-            bitManipulation.IsInterleave("aabcc", "dbbca", "aadbbcbcac");
+            //bitManipulation.IsInterleave("aabcc", "dbbca", "aadbbcbcac");
+
+            MultidimensionalDP multidimensionalDP = new MultidimensionalDP();
+
+            multidimensionalDP.MaxProfit([3, 3, 5, 0, 0, 3, 1, 4]);
 
             Console.WriteLine("Hello, World!");
         }

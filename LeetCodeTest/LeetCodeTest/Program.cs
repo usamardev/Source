@@ -189,7 +189,7 @@ namespace LeetCodeTest
 
             BitManipulation bitManipulation = new BitManipulation();
 
-            bitManipulation.LongestPalindrome("babad");
+            bitManipulation.IsInterleave("aabcc", "dbbca", "aadbbcbcac");
 
             Console.WriteLine("Hello, World!");
         }

@@ -105,5 +105,66 @@
             }
             return true;
         }
+
+        public bool IsInterleave(string s1, string s2, string s3)
+        {
+            int n = s1.Length, m = s2.Length;
+            if (n + m != s3.Length)
+                return false;
+
+            bool[,] dp = new bool[n + 1, m + 1];
+            dp[0, 0] = true;
+
+            // s1 bilan to‘ldirish
+            for (int i = 1; i <= n; i++)
+                dp[i, 0] = dp[i - 1, 0] && s1[i - 1] == s3[i - 1];
+
+            // s2 bilan to‘ldirish
+            for (int j = 1; j <= m; j++)
+                dp[0, j] = dp[0, j - 1] && s2[j - 1] == s3[j - 1];
+
+            // DP jadvalni to‘ldirish
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= m; j++)
+                {
+                    char c = s3[i + j - 1];
+                    dp[i, j] =
+                        (dp[i - 1, j] && s1[i - 1] == c) ||
+                        (dp[i, j - 1] && s2[j - 1] == c);
+                }
+            }
+
+            return dp[n, m];
+        }
+
+        public bool IsInterleaveBetter(string s1, string s2, string s3)
+        {
+            if (s1.Length + s2.Length != s3.Length)
+            {
+                return false;
+            }
+            var dp = new bool[s2.Length + 1];
+            var lastRow = new bool[s2.Length + 1];
+            dp[0] = true;
+            lastRow[0] = true;
+            for (var i = 0; i <= s1.Length; ++i)
+            {
+                for (var j = 0; j <= s2.Length; ++j)
+                {
+                    if (i > 0 && lastRow[j] && s1[i - 1] == s3[i + j - 1])
+                    {
+                        dp[j] |= true;
+                    }
+                    if (j > 0 && dp[j - 1] && s2[j - 1] == s3[i + j - 1])
+                    {
+                        dp[j] |= true;
+                    }
+                }
+                lastRow = dp;
+                dp = new bool[s2.Length + 1];
+            }
+            return lastRow[s2.Length];
+        }
     }
 }

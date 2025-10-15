@@ -15,5 +15,29 @@
 
             return maxSum;
         }
+
+        public int MaxSubarraySumCircular(int[] nums)
+        {
+            int total = 0;
+            int maxSum = nums[0], curMax = 0;
+            int minSum = nums[0], curMin = 0;
+
+            foreach (int n in nums)
+            {
+                curMax = Math.Max(n, curMax + n);
+                maxSum = Math.Max(maxSum, curMax);
+
+                curMin = Math.Min(n, curMin + n);
+                minSum = Math.Min(minSum, curMin);
+
+                total += n;
+            }
+
+            // agar hamma sonlar manfiy bo‘lsa
+            if (maxSum < 0)
+                return maxSum;
+
+            return Math.Max(maxSum, total - minSum);
+        }
     }
 }

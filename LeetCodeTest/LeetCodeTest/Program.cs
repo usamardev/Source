@@ -182,11 +182,14 @@ namespace LeetCodeTest
             //Console.WriteLine(finder.FindMedian()); // 1.5
             //finder.AddNum(3);
             //Console.WriteLine(finder.FindMedian()); // 2
+            //BitManipulation bitManipulation = new BitManipulation();
+
+            //bitManipulation.RangeBitwiseAnd(5,7);
             #endregion
 
             BitManipulation bitManipulation = new BitManipulation();
 
-            bitManipulation.RangeBitwiseAnd(5,7);
+            bitManipulation.LongestPalindrome("babad");
 
             Console.WriteLine("Hello, World!");
         }

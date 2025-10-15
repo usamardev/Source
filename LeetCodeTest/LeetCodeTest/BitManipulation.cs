@@ -69,5 +69,41 @@
             }
             return left << shift; // umumiy prefiksni qayta joyiga siljit
         }
+
+        public string LongestPalindrome(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return "";
+            int sIndex = 0, eIndex = 0;
+
+            for (int len = s.Length - 1; len >= 0; len--)
+            {
+                bool found = false;
+                for (int start = 0; start + len < s.Length; start++)
+                {
+                    int end = start + len;
+                    if (IsPalindrome(s, start, end))
+                    {
+                        sIndex = start;
+                        eIndex = end;
+                        found = true;
+                        break;
+                    }
+                }
+                if (found) break;
+            }
+
+            return s.Substring(sIndex, eIndex - sIndex + 1);
+        }
+
+        private bool IsPalindrome(string s, int start, int end)
+        {
+            while (start < end)
+            {
+                if (s[start] != s[end]) return false;
+                start++;
+                end--;
+            }
+            return true;
+        }
     }
 }

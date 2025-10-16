@@ -144,6 +144,36 @@
 
             return list;    
         }
+
+
+        public void GameOfLife(int[][] board)
+        {
+            int m = board.Length, n = board[0].Length;
+            int[] dirs = { -1, 0, 1 };
+
+            for (int i = 0; i < m; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    int live = 0;
+                    foreach (int dx in dirs)
+                        foreach (int dy in dirs)
+                        {
+                            if (dx == 0 && dy == 0) continue;
+                            int x = i + dx, y = j + dy;
+                            if (x >= 0 && x < m && y >= 0 && y < n)
+                                live += board[x][y] & 1;
+                        }
+
+                    if (board[i][j] == 1 && (live == 2 || live == 3))
+                        board[i][j] |= 2; // tirik qoladi
+                    if (board[i][j] == 0 && live == 3)
+                        board[i][j] |= 2; // yangi tiriladi
+                }
+
+            for (int i = 0; i < m; i++)
+                for (int j = 0; j < n; j++)
+                    board[i][j] >>= 1; // keyingi avlodga o‘tish
+        }
     }
 }
  

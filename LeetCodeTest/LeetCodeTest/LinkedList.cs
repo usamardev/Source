@@ -390,6 +390,93 @@ namespace LeetCodeTest
             return beforeHead.next;
         }
 
+        public class LRUCache
+        {
+            private class Node
+            {
+                public int Key, Value;
+                public Node Prev, Next;
+                public Node(int key, int value)
+                {
+                    Key = key;
+                    Value = value;
+                }
+            }
+
+            private readonly int capacity;
+            private readonly Dictionary<int, Node> cache;
+            private readonly Node head, tail;
+
+            public LRUCache(int capacity)
+            {
+                this.capacity = capacity;
+                cache = new Dictionary<int, Node>(capacity);
+                head = new Node(0, 0);
+                tail = new Node(0, 0);
+                head.Next = tail;
+                tail.Prev = head;
+            }
+
+            public int Get(int key)
+            {
+                if (!cache.ContainsKey(key))
+                    return -1;
+
+                Node node = cache[key];
+                MoveToHead(node);
+                return node.Value;
+            }
+
+            public void Put(int key, int value)
+            {
+                if (cache.ContainsKey(key))
+                {
+                    Node node = cache[key];
+                    node.Value = value;
+                    MoveToHead(node);
+                }
+                else
+                {
+                    Node newNode = new Node(key, value);
+                    cache[key] = newNode;
+                    AddToHead(newNode);
+
+                    if (cache.Count > capacity)
+                    {
+                        Node tailNode = RemoveTail();
+                        cache.Remove(tailNode.Key);
+                    }
+                }
+            }
+
+            private void AddToHead(Node node)
+            {
+                node.Prev = head;
+                node.Next = head.Next;
+                head.Next.Prev = node;
+                head.Next = node;
+            }
+
+            private void RemoveNode(Node node)
+            {
+                node.Prev.Next = node.Next;
+                node.Next.Prev = node.Prev;
+            }
+
+            private void MoveToHead(Node node)
+            {
+                RemoveNode(node);
+                AddToHead(node);
+            }
+
+            private Node RemoveTail()
+            {
+                Node node = tail.Prev;
+                RemoveNode(node);
+                return node;
+            }
+        }
+
     }
     public class ListNode
     {

@@ -154,5 +154,78 @@
             return sell2;
         }
 
+        //188. Best Time to Buy and Sell Stock IV
+        public int MaxProfit(int k, int[] prices)
+        {
+            if(prices.Length == 0)  return 0;
+            
+            int buy = int.MinValue;    
+            int sell = 0;
+            Dictionary<int,BuySeles> keyValuePairs = new Dictionary<int,BuySeles>();
+            keyValuePairs.Add(1, new BuySeles { buy = int.MinValue, sell = 0 });
+            foreach (int price in prices)
+            {
+                buy = Math.Max(buy, -price);
+                sell = Math.Max(sell, buy + price);
+
+                keyValuePairs[1].buy = buy;
+                keyValuePairs[1].sell = sell;
+
+                for (int i = 2; i <= k; i++)
+                {
+                    if (keyValuePairs.ContainsKey(i))
+                    {
+                        keyValuePairs[i].buy = Math.Max(keyValuePairs[i].buy, keyValuePairs[i-1].sell - price);
+                        keyValuePairs[i].sell = Math.Max(keyValuePairs[i].sell, keyValuePairs[i].buy + price);
+                    }
+                    else
+                    {
+                        int buyI = Math.Max(int.MinValue, keyValuePairs[i - 1].sell - price);
+                        int sellI = Math.Max(0, buyI + price);
+                        keyValuePairs.Add(i,new BuySeles { buy = buyI, sell = sellI });
+                    }
+                }
+            }
+
+            return keyValuePairs[k].sell;
+        } 
+
+        class BuySeles
+        {
+            public int buy { get; set; }
+            public int sell { get; set; }
+        }
+
+        //188. Best Time to Buy and Sell Stock IV
+        public int MaxProfitBetter(int k, int[] prices)
+        {
+            int n = prices.Length;
+            if (k > n / 2)
+                return QuickProfit(prices, n);
+            int[,] dp = new int[k + 1, n];
+            for (int i = 1; i <= k; i++)
+            {
+                int min = int.MinValue;
+                for (int j = 1; j < n; j++)
+                {
+                    min = Math.Max(min, dp[i - 1, j - 1] - prices[j - 1]);
+                    dp[i, j] = Math.Max(min + prices[j], dp[i, j - 1]);
+                }
+            }
+            return dp[k, n - 1];
+        }
+
+        public int QuickProfit(int[] prices, int n)
+        {
+            int profit = 0;
+            int i = 1;
+            while (i < n)
+            {
+                profit += prices[i] > prices[i - 1] ? prices[i] - prices[i - 1] : 0;
+                i++;
+            }
+            return profit;
+        }
+
     }
 }

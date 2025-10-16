@@ -193,7 +193,9 @@ namespace LeetCodeTest
 
             MultidimensionalDP multidimensionalDP = new MultidimensionalDP();
 
-            multidimensionalDP.MaxProfit([3, 3, 5, 0, 0, 3, 1, 4]);
+            //multidimensionalDP.MaxProfit([3, 3, 5, 0, 0, 3, 1, 4]);
+
+            int a=multidimensionalDP.MaxProfit(2, [3, 2, 6, 5, 0, 3]);
 
             Console.WriteLine("Hello, World!");
         }

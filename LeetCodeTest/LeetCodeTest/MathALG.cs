@@ -94,14 +94,74 @@ namespace LeetCodeTest
 
 
 
-        //public int MaxPoints(int[][] points)
-        //{
+        public int MaxPoints(int[][] points)
+        {
+            if (points.Length <= 2)
+                return points.Length;
 
-        //}
+            int maxPoints = 0;
 
-        //List<int[]> GetListReady(int[] ints)
-        //{
+            for (int i = 0; i < points.Length; i++)
+            {
+                var slopes = new Dictionary<double, int>();
+                int duplicates = 0, localMax = 0;
 
-        //}
+                for (int j = i + 1; j < points.Length; j++)
+                {
+                    int dx = points[j][0] - points[i][0];
+                    int dy = points[j][1] - points[i][1];
+
+                    if (dx == 0 && dy == 0)
+                    {
+                        duplicates++; // same point
+                        continue;
+                    }
+
+                    double slope;
+                    if (dx == 0) slope = double.PositiveInfinity;
+                    else slope = (double)dy / dx;
+
+                    if (!slopes.ContainsKey(slope))
+                        slopes[slope] = 1;
+                    else
+                        slopes[slope]++;
+
+                    localMax = Math.Max(localMax, slopes[slope]);
+                }
+
+                maxPoints = Math.Max(maxPoints, localMax + duplicates + 1);
+            }
+
+            return maxPoints;
+        }
+
+        public int MaxPointsBetter(int[][] points)
+        {
+            int n = points.Length;
+            int ans = 1;
+            for (int i = 0; i < n; i++)
+            {
+                int x1 = points[i][0];
+                int y1 = points[i][1];
+                for (int j = i + 1; j < n; j++)
+                {
+                    int x2 = points[j][0];
+                    int y2 = points[j][1];
+                    int cnt = 2;
+                    for (int k = j + 1; k < n; k++)
+                    {
+                        int x3 = points[k][0];
+                        int y3 = points[k][1];
+                        int firstdiff = (y2 - y1) * (x3 - x1);
+                        int seonddiff = (y3 - y1) * (x2 - x1);
+                        if (firstdiff == seonddiff)
+                            cnt++;
+                    }
+                    if (ans < cnt)
+                        ans = cnt;
+                }
+            }
+            return ans;
+        }
     }
 }

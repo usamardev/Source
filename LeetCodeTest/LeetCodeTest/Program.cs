@@ -1,4 +1,5 @@
-﻿using static LeetCodeTest.Heap;
+﻿using LeetCodeTest.AllParts.Array;
+using static LeetCodeTest.Heap;
 
 namespace LeetCodeTest
 {
@@ -195,7 +196,11 @@ namespace LeetCodeTest
 
             //multidimensionalDP.MaxProfit([3, 3, 5, 0, 0, 3, 1, 4]);
 
-            int a=multidimensionalDP.MaxProfit(2, [3, 2, 6, 5, 0, 3]);
+            //int a=multidimensionalDP.MaxProfit(2, [3, 2, 6, 5, 0, 3]);
+
+            ArrayOnePart arrayOnePart = new ArrayOnePart();
+
+            arrayOnePart.ThreeSumClosest([1, 1, 1, 0], -100);
 
             Console.WriteLine("Hello, World!");
         }
